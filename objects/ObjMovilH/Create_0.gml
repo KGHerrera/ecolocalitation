@@ -1,0 +1,1 @@
+intVX		= velocidad
