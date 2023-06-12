@@ -58,7 +58,7 @@ isPlaning = false
 
 talking = false
 
-plane = instance_create_layer(x, y, "Instances", ObjPlane)
+plane = instance_create_depth(x, y, depth - 1, ObjPlane)
 play = 10
 
 with(plane){

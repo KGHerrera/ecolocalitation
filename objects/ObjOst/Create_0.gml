@@ -19,6 +19,11 @@ else if(room == Puntuacion) {
 	cancion = audio_play_sound(ost_pointer, 2, true);
 }
 
+else if(room == Desierto_de_ajo_muerto) {
+	cancion = audio_play_sound(ost_desert, 2, true);
+}
+
+
 else {
 	cancion = audio_play_sound(ost_test, 2, true);
 }

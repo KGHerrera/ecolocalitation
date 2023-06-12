@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Emojis",
+    "path": "folders/Sprites/Emojis.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

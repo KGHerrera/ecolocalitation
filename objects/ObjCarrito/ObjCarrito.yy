@@ -31,7 +31,7 @@
         "\"ja tengo un bote de basura para botellas, pero vendo elotes que raro, por cierto ya intentaste hacer el dash en diferentes direcciones :v\"",
         "\"antes aqui todo era blanco, rosa y un poco de azul sal de aqui esponja\"",
       ],"multiselect":true,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"\"antes aqui todo era blanco, rosa y un poco de azul sal de aqui esponja\"","varType":6,},
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"pfp","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"sDialogPrueba","varType":5,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"pfp","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"z2","varType":5,},
   ],
   "solid": false,
   "spriteId": {

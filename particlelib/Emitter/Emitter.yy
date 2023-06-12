@@ -53,10 +53,13 @@
   "speedMax": 2.0,
   "speedMin": 1.0,
   "speedWiggle": 0.0,
+  "spriteAnimate": false,
   "spriteId": {
     "name": "sp",
     "path": "sprites/sp/sp.yy",
   },
+  "spriteRandom": false,
+  "spriteStretch": true,
   "startColour": 4294967295,
   "texture": -1,
 }

@@ -48,8 +48,8 @@ if keyDown and place_meeting(x, y + 1, ObjPlataform) and !place_meeting(x, y + 1
 }
 
 // comprobacion de coliciones
-intColLeft		  = place_meeting(x - 1, y, ObjBlock) or place_meeting(x - 2, y, ObjBlock) or place_meeting(x - 3, y, ObjBlock) or place_meeting(x - 4, y, ObjBlock) 
-intColRight		  = place_meeting(x + 1, y, ObjBlock) or place_meeting(x + 2, y, ObjBlock) or place_meeting(x + 3, y, ObjBlock) or place_meeting(x + 4, y, ObjBlock)
+intColLeft		  = place_meeting(x - 1, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x - 1, y, "Collision"))
+intColRight		  = place_meeting(x + 1, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x + 1, y, "Collision"))
 
 intColLeftNo	  = place_meeting(x - 1, y, ObjNoClimb) 
 intColRightNo	  = place_meeting(x + 1, y, ObjNoClimb)
@@ -106,13 +106,18 @@ if(keyX and !bolGround and canDash){
 
 
 if (isDashing) {
+	
 	canDash = false
+	
 	if(dashDuration == maxDash - 1){
 		audio_play_sound(snd_dash, 12, false, 1, .3, .8)
 	}
+	
     dashDuration	-=  1
 	
+	
 	// trail effect
+	/*
 	if(dashDuration % 6 == 0){
 		with(instance_create_layer(x, y, "Instances", ObjTrail)) {
 			sprite_index = other.sprite_index
@@ -122,6 +127,8 @@ if (isDashing) {
 			image_yscale = other.spriteSize
 		}
 	}
+	*/
+	
 	
 	intVX = scrApproach(intVX, intVXMax * intMove, intTempAcc * 2)
 	
@@ -209,6 +216,7 @@ if(!bolSurface){
 	if(keyJump and keyDown){
 		intVY = intJumpHeightW - 2
 		audio_play_sound(snd_splash, 0, false)
+		
 	}
 	
 	else if (keyJump) {
@@ -228,21 +236,38 @@ if (keyboard_check_released(ord("Z")) or gamepad_button_check_released(0, gp_fac
 // Colicion horizontal
 
 repeat (abs(intVX)) {		
-// Colicion horizontal
-	if (!place_meeting(x + sign(intVX), y, ObjBlock)) {
+	
+	// Colicion horizontal
+	if(layer_exists("Collision")){
+		
+		if(!scrTileMeeting(x + sign(intVX), y, "Collision") and !place_meeting(x + sign(intVX), y, ObjBlock)){
+			x += sign(intVX)
+		} else { 
+			intVX = 0; 
+			break 
+		}
+		
+		
+	}
+	
+	else if(!place_meeting(x + sign(intVX), y, ObjBlock)){
 		x += sign(intVX)
 	}
+	
 	else { 
-		intVX =   0; 
+		intVX = 0; 
 		break 
 	}
+	
 }
-
-
-
 
 // Colicion vertical
 repeat (abs(intVY)) { 
+	
+	if(layer_exists("Collision") and scrTileMeeting(x, y + sign(intVY), "Collision" )){
+			intVY = 0
+			break
+	}
     if (place_meeting(x, y + sign(intVY) ,ObjBlock)){
 		intVY = 0
 		break
@@ -380,10 +405,10 @@ if (isPlaning) {
 	intVYMax = lerp(intVYMax, 6, 0.25)
 	isPlaning = false
 	play = 10
-	
 	if(stamina < maxStamina){
 		stamina += 1
 	}
+	
 }
 
 if(instance_exists(ObjControl)){

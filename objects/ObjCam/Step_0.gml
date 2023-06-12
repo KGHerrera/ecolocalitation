@@ -9,7 +9,6 @@ if(!freeze and instance_exists(following)){
 	
 	var cam_x = camera_get_view_x(view)
 	var cam_y = camera_get_view_y(view)
-	
 	var fol_y = following.y - 320/2/zoom
 	var fol_x = following.x - 640/2/zoom
 
