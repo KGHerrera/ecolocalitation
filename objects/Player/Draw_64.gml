@@ -55,13 +55,14 @@ if(Player.canDash){
 	colorBar = make_color_rgb(20, 208, 255)
 }
 
-if(stamina < 20){
+if(stamina <= maxStamina/2){
 	colorBar = make_color_rgb(255, 13, 122)
 }
 
 scrMagicBar(display_get_gui_width() / 2, 50, Player.stamina, Player.maxStamina, colorBar, 30, 1, 10)
 
-   
-//draw_text(20, 100, string(Player.timer_life))
+draw_set_color(c_white) 
+//draw_text(20, 100, string(Player.papeles))
+
 
 

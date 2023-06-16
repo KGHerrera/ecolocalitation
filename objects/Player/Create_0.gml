@@ -54,6 +54,10 @@ lifeIndex = 0
 isDashing = false
 
 papel = 0
+papeles = 0
+latas = 0
+organicas = 0
+
 isPlaning = false
 
 talking = false
@@ -78,7 +82,7 @@ startTimer = false
 showMessage = false
 mensaje = "Bien hecho estas ayudando mucho!!"
 
-stamina = 65
+stamina = 80
 maxStamina = stamina
 
 flashAlpha = 0

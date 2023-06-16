@@ -10,5 +10,6 @@ play = false
 end_ = false
 
 mensaje = "No llevas objetos de este tipo"
+showMesaje = false
 
 suma = 0

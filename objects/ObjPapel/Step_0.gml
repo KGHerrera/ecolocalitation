@@ -25,6 +25,11 @@ if (distance_to_object(Player) < 20 and !startFollow and Player.papel < 10 and !
     startFollow = true
 	with(Player){
 		sound += 0.2
+		
+		if(other.tipo == "organ") Player.organicas += 1
+		else if(other.tipo == "lata") Player.latas += 1
+		else if(other.tipo == "papel") Player.papeles += 1
+		
 		papel += 1
 		if(sound = 2.0){
 			sound = 1

@@ -11,6 +11,12 @@ if(instance_exists(ObjControl)){
 if (distance_to_object(Player) < 40 and Player.bolGround and !end_) {
 	inst.visible = true
 	if(Player.keyX and Player.bolGround){
+		
+		if(tipo == "organ" and Player.organicas == 0) showMesaje = true
+		else if(tipo == "lata" and Player.latas == 0) showMesaje = true
+		else if(tipo == "papel" and Player.papeles == 0) showMesaje = true
+		
+		
 		with(ObjPapel){
 			if(startFollow and !followBote and !sumaPuntos and tipo = other.tipo) {
 				followBote = true
@@ -22,6 +28,11 @@ if (distance_to_object(Player) < 40 and Player.bolGround and !end_) {
 					Player.sound = 1
 					Player.puntaje += 100				
 					Player.papel -= 1
+					
+					if(tipo == "organ") Player.organicas -= 1
+					else if(tipo == "lata") Player.latas -= 1
+					else if(tipo == "papel") Player.papeles -= 1
+					
 					Player.basuraRecolectada++
 				}	
 				
@@ -36,6 +47,15 @@ if (distance_to_object(Player) < 40 and Player.bolGround and !end_) {
 	inst.visible = false
 }
 
+if(showMesaje){
+	if(instance_exists(ObjControl)){
+		ObjControl.mensaje_ayuda = mensaje
+		ObjControl.mensajeTime = 180
+		audio_play_sound(snd_error, 1, false)
+	}
+	
+	showMesaje = false
+}
 
 if(play){
 	audio_play_sound(snd_bote, 11, false, 1)

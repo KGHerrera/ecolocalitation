@@ -13,7 +13,10 @@
     "name": "Control",
     "path": "folders/Objects/Control.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "ObjCam",
+    "path": "objects/ObjCam/ObjCam.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

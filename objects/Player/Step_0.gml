@@ -136,10 +136,10 @@ if (isDashing) {
 		intVY = scrApproach(intVY, -intMaxDashAcc, intTempAcc * 4)
 	}
 	else if(keyDown) {
-		intVY = scrApproach(intVY, intVYMax, intTempAcc * 4)
+		intVY = scrApproach(intVY, intMaxDashAcc, intTempAcc * 4)
 	}
 	else {
-		intVY	= -intGravityNorm
+		intVY = -intGravityNorm
 	}
 	
 	if (dashDuration == 0 or keyboard_check_released(ord("X")) or gamepad_button_check_released(0, gp_face3)) {
@@ -268,6 +268,7 @@ repeat (abs(intVY)) {
 			intVY = 0
 			break
 	}
+	
     if (place_meeting(x, y + sign(intVY) ,ObjBlock)){
 		intVY = 0
 		break
@@ -374,7 +375,7 @@ if(bolSurface){
 	isDashing = false
 }
 
-if(canDash and !bolGround and keyA and !isDashing and stamina > 0){
+if(!bolGround and keyA and !isDashing and stamina >= maxStamina/2){
 	isPlaning = true
 }
 
@@ -396,7 +397,7 @@ if (isPlaning) {
 	plane.visible = true
 	play--
 	
-	if(!canDash or keyboard_check_released(ord("C")) or gamepad_button_check_released(0, gp_shoulderr) or stamina == 0){
+	if(isDashing or keyboard_check_released(ord("C")) or gamepad_button_check_released(0, gp_shoulderr) or stamina == 0){
 		isPlaning = false
 	}
 	

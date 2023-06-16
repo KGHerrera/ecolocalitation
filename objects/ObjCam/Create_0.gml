@@ -2,6 +2,7 @@ backLayer = layer_get_id("bg_1")
 backLayer2 = layer_get_id("bg_2")
 backLayer3 = layer_get_id("bg_3")
 backLayer4 = layer_get_id("bg_4")
+backLayerStatic = layer_get_id("bg_static")
 
 freeze = false;
 

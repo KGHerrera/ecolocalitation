@@ -2,7 +2,7 @@ if(instance_exists(ObjControl)){
 	end_ = ObjControl.end_
 }
 
-if (distance_to_object(Player) < 70 and Player.bolGround and Player.intVX == 0 and !end_) {
+if (distance_to_object(Player) < 70 and Player.bolGround and !end_) {
 	
 		inst.visible = true;
 		

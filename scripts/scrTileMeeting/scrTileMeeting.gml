@@ -1,22 +1,28 @@
-// Los recursos de Script han cambiado para la v2.3.0 Consulta
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 para más información
 function scrTileMeeting(argument0, argument1, argument2){
-	var _layer = argument2,
-    _tm = layer_tilemap_get_id(_layer);
+    var xx, yy, tilemap, xp, yp, meeting;
 
-var _x1 = tilemap_get_cell_x_at_pixel(_tm, bbox_left + (argument0 - x), y),
-    _y1 = tilemap_get_cell_y_at_pixel(_tm, x, bbox_top + (argument1 - y)),
-    _x2 = tilemap_get_cell_x_at_pixel(_tm, bbox_right + (argument0 - x), y),
-    _y2 = tilemap_get_cell_y_at_pixel(_tm, x, bbox_bottom + (argument1 - y));
+	xx = argument0;
+	yy = argument1;
+	tilemap = layer_tilemap_get_id(argument2)
 
-for(var _x = _x1; _x <= _x2; _x++){
- for(var _y = _y1; _y <= _y2; _y++){
-    if(tile_get_index(tilemap_get(_tm, _x, _y))){
-		return true;
-		}
-	}
-}
+	//save our current position
+	xp = x;
+	yp = y;
 
-return false;
+	//move to the position where we wanna check for a tile collision
+	x = xx;
+	y = yy;
 
+	//check for collision on all four corners of the collision mask
+	meeting = tilemap_get_at_pixel(tilemap, bbox_right, bbox_top)
+		   || tilemap_get_at_pixel(tilemap, bbox_right, bbox_bottom)
+		   || tilemap_get_at_pixel(tilemap, bbox_left, bbox_top)
+	       || tilemap_get_at_pixel(tilemap, bbox_left, bbox_bottom);
+
+	//Move back to the original position
+	x = xp;
+	y = yp;
+
+	//Return wether or not there was a collision
+	return(meeting);
 }
