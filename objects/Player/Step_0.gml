@@ -51,6 +51,9 @@ if keyDown and place_meeting(x, y + 1, ObjPlataform) and !place_meeting(x, y + 1
 intColLeft		  = place_meeting(x - 1, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x - 1, y, "Collision"))
 intColRight		  = place_meeting(x + 1, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x + 1, y, "Collision"))
 
+intColLeftJump = place_meeting(x - 16, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x - 16, y, "Collision"))
+intColRightJump = place_meeting(x + 16, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x + 16, y, "Collision"))
+
 intColLeftNo	  = place_meeting(x - 1, y, ObjNoClimb) 
 intColRightNo	  = place_meeting(x + 1, y, ObjNoClimb)
 
@@ -340,7 +343,7 @@ if (intColLeft and keyLeft) or (intColRight and keyRight) {
 // Salto en la pared
 if(!bolSurface){
 	
-	if(intColLeft and keyJump and !bolGround and !intColLeftNo){
+	if(intColLeftJump and keyJump and !bolGround and !intColLeftNo){
 		canDash = true
 		dashDuration = maxDash
 		intVX = intVXMax * 2
@@ -348,7 +351,7 @@ if(!bolSurface){
 		intVY = -intJumpHeight * 1
 	}
 	
-	if(intColRight and keyJump and !bolGround and !intColRightNo){
+	if(intColRightJump and keyJump and !bolGround and !intColRightNo){
 		canDash = true
 		dashDuration = maxDash
 		intVX = -intVXMax * 2
