@@ -24,20 +24,31 @@ if(keyRight or keyLeft or keyJump){
 	startTimer = true
 }
 
-if(instance_exists(ObjControl)){
-	if(!ObjControl.end_ and startTimer){
-		timeElapsed += delta_time / 1000000;
-	}
+if (!ObjControl.end_ && startTimer) {
+    timeElapsed += delta_time / room_speed / 10000;
 }
 
 // velocidades dinamicas
+/*
+if(abs(intVX) >= intMaxDashAcc){
+	lose_speed = 20
+}
+
+else{
+	
+	if(lose_speed > 0){
+		lose_speed--
+	}
+}
+*/
+
 if(intVXMax > intMaxGroundDash){
-	intVXMax = lerp(intVXMax, intMaxGroundDash, 0.1);
+	intVXMax = scrApproach(intVXMax, intMaxGroundDash, 0.01);
 }
 
 if(isDashing and intVXMax < intMaxGroundDash){
 	intVXMax = intMaxDashAcc
-} else if(intVX < intVXReset and intVX > -intVXReset){
+} else if(abs(intVX) < intVXReset){
 	intVXMax = intVXReset
 } 
 
@@ -51,16 +62,18 @@ if keyDown and place_meeting(x, y + 1, ObjPlataform) and !place_meeting(x, y + 1
 intColLeft		  = place_meeting(x - 1, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x - 1, y, "Collision"))
 intColRight		  = place_meeting(x + 1, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x + 1, y, "Collision"))
 
-intColLeftJump = place_meeting(x - 16, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x - 16, y, "Collision"))
-intColRightJump = place_meeting(x + 16, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x + 16, y, "Collision"))
+intColLeftJump = place_meeting(x - 10, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x - 10, y, "Collision"))
+intColRightJump = place_meeting(x + 10, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x + 10, y, "Collision"))
 
-intColLeftNo	  = place_meeting(x - 1, y, ObjNoClimb) 
-intColRightNo	  = place_meeting(x + 1, y, ObjNoClimb)
+intColLeftNo	  = place_meeting(x - 15, y, ObjNoClimb) 
+intColRightNo	  = place_meeting(x + 15, y, ObjNoClimb)
 
 bolGround		  =	scrBolGround()
 intMove			  = keyRight - keyLeft;
 
 insMovilH		  = instance_place(x, y + 1, ObjMovilH)
+insMovilY		  = instance_place(x, y + 3, ObjMovilY)
+insMovilF		  = instance_place(x, y + 1, ObjMovilF)
 
 bolSurface = place_meeting(x, y, ObjWater)
 
@@ -183,7 +196,7 @@ if(!bolSurface){
 
 
 // Velocidad sobre plataforma movil
-if(instance_place(x, y + 1, ObjMovilH) and !instance_place(x, y, ObjMovilH) and !place_meeting(x + insMovilH.intVX, y, ObjBlock)){
+if(instance_place(x, y + 1, ObjMovilH) and !instance_place(x, y, ObjMovilH) and !place_meeting(x + insMovilH.intVX, y, ObjBlock) and !scrTileMeeting(x + insMovilH.intVX, y, "Collision")){
 	x += insMovilH.intVX
 }
 
@@ -278,15 +291,35 @@ repeat (abs(intVY)) {
 	} else if (place_meeting(x, y + sign(intVY), ObjPlataform) and !place_meeting(x, y, ObjPlataform) and intVY >= 0){
 		intVY = 0
 		break
-	} else if (place_meeting(x, y + sign(intVY), ObjMovilH) and !place_meeting(x, y, ObjMovilH) and intVY >= 0){
+	}
+	
+	else if (place_meeting(x, y + sign(intVY), ObjMovilF) and !place_meeting(x, y, ObjMovilF) and intVY >= 0){
 		intVY = 0
 		break
-	}  else if (place_meeting(x, y + sign(intVY) + 1, ObjMovilY) and !place_meeting(x, y, ObjMovilY) and intVY >= 0){
+	}
+	
+	else if (place_meeting(x, y + sign(intVY), ObjMovilH) and !place_meeting(x, y, ObjMovilH) and intVY >= 0){
+		intVY = 0
+		break
+	}  
+	
+	else if (place_meeting(x, y + sign(intVY) + 1, ObjMovilY) and !place_meeting(x, y, ObjMovilY) and intVY >= 0){
 		intVY = instance_place(x, y + sign(intVY) + 1, ObjMovilY).intVY
 		break
 	}
 	else {
 		y += sign(intVY)
+	}
+}
+
+// plataformas que se caen
+if(intVY >= 0 and insMovilF != noone){
+	with(insMovilF){
+		if(!bolFalling and Player.y <= y){
+			bolFalling = true
+			alarm[0] = intTimer
+			ObjCam.shakeTimer = 30
+		}
 	}
 }
  
@@ -296,7 +329,7 @@ if (intMove != 0) {
 	image_xscale = intMove * spriteSize
 }
 
-if(!bolGround and bolSurface){
+if(bolSurface){
 	
 	sprite_index = swim2
 	
@@ -346,16 +379,16 @@ if(!bolSurface){
 	if(intColLeftJump and keyJump and !bolGround and !intColLeftNo){
 		canDash = true
 		dashDuration = maxDash
-		intVX = intVXMax * 2
-		intVXMax = intVXMax * 2
+		intVX = 8
+		intVXMax = 7
 		intVY = -intJumpHeight * 1
 	}
 	
 	if(intColRightJump and keyJump and !bolGround and !intColRightNo){
 		canDash = true
 		dashDuration = maxDash
-		intVX = -intVXMax * 2
-		intVXMax = intVXMax * 2
+		intVX = -8
+		intVXMax = 7
 		intVY = -intJumpHeight * 1
 	}
 }
@@ -378,7 +411,7 @@ if(bolSurface){
 	isDashing = false
 }
 
-if(!bolGround and keyA and !isDashing and stamina >= maxStamina/2){
+if(!bolGround and keyA and !isDashing and stamina >= maxStamina/2 and !bolSurface){
 	isPlaning = true
 }
 
@@ -394,13 +427,14 @@ if (isPlaning) {
 		part_system_position(particula, x, y - 22)
 	}
 	if(intVY >= 0){
+		// esta rotisimo
 		intVYMax = lerp(intVYMax, 2, 0.25)
 	}
 	
 	plane.visible = true
 	play--
 	
-	if(isDashing or keyboard_check_released(ord("C")) or gamepad_button_check_released(0, gp_shoulderr) or stamina == 0){
+	if(isDashing or keyboard_check_released(ord("C")) or gamepad_button_check_released(0, gp_shoulderr) or stamina == 0 or bolSurface){
 		isPlaning = false
 	}
 	

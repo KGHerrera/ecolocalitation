@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spPez",
-    "path": "sprites/spPez/spPez.yy",
+    "name": "spPezAzul",
+    "path": "sprites/spPezAzul/spPezAzul.yy",
   },
   "spriteMaskId": null,
   "visible": true,

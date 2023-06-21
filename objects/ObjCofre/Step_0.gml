@@ -6,12 +6,16 @@ if(distance_to_object(Player) < 50  and Player.bolGround and pressCont < 1){
 	
 	if(Player.keyX and pressCont < 1){
 		pressCont++
-		ObjCam.shakeTimer = 15
+		ObjCam.shakeTimer = 30
 		
 		if(pressCont == 1){
 			sprite_index = spCofreC
 			createInstances = true
 			//instance_create_depth(x, y - 32, depth - 1, ObjBird)
+			
+			particula = part_system_create(psFly)
+			part_system_position(particula, x, y - 32)
+			
 			audio_play_sound(snd_bote, 2, false)
 			
 			var vx_values = []; // Array para almacenar los valores de intVX generados

@@ -12,4 +12,4 @@ if(rdSp == 1){
 	sprite_index = spCandy3
 }
 
-timeNoCol = 30
+timeNoCol = 20

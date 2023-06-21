@@ -31,8 +31,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "objMovilV",
-    "path": "sprites/objMovilV/objMovilV.yy",
+    "name": "spMovilH",
+    "path": "sprites/spMovilH/spMovilH.yy",
   },
   "spriteMaskId": null,
   "visible": true,

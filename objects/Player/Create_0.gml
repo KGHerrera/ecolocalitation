@@ -1,6 +1,7 @@
 puntaje = 0
 sound = 1
-timer_life = 20
+
+lose_speed = 0
 
 intVX           =   0
 intVY           =   0 
@@ -15,6 +16,7 @@ spriteSize = 2
 intVYMax		=   6	
 intVXMax		=	4	
 intVXReset		=	4
+intMaxDashAcc	=	5
 intMaxGroundDash =  6
 
 intJumpHeight   =   9
@@ -24,8 +26,6 @@ intGroundAcc	=   1
 intGroundFric	=   0.2
 intAirAcc		=   1
 intAirFric		=   .2
-
-intMaxDashAcc	=	5
 
 // bajo el agua
 intVYMaxW		=   2

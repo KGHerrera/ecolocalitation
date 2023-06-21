@@ -10,6 +10,10 @@ function scrBolGround(){
 		if(intVY >= 0) return 1
 	}
 	
+	else if (place_meeting(x, y + 1, ObjMovilF) and !place_meeting(x, y, ObjMovilF)){
+		if(intVY >= 0) return 1
+	}
+	
 	else if (place_meeting(x, y + 1, ObjMovilY) and !place_meeting(x, y, ObjMovilY)){
 		return 1
 	}

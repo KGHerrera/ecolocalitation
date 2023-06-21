@@ -27,18 +27,11 @@ draw_text(85, 58, "P: " + string(Player.puntaje));
 draw_set_color(c_white);
 
 
-draw_text(215, 58, "Rec: " + string(Player.basuraRecolectada));
+draw_text(215, 58, "R: " + string(Player.basuraRecolectada));
 global.draw_set_font(Pixel2)
 
 
 draw_set_color(c_white)
-
-
-// cuando puedas agrega un reloj
-//var x_pos = display_get_gui_width() - 200
-//var y_pos =  20
-//var seconds = Player.timeElapsed mod 60
-//draw_text(x_pos, y_pos, string_format(seconds, 8, 3));
 
 
 
@@ -62,7 +55,21 @@ if(stamina <= maxStamina/2){
 scrMagicBar(display_get_gui_width() / 2, 50, Player.stamina, Player.maxStamina, colorBar, 30, 1, 10)
 
 draw_set_color(c_white) 
-//draw_text(20, 100, string(Player.papeles))
+
+// relog
+// Guardar el alineado actual
+var currentAlign = draw_get_halign();
+
+// Establecer el alineado horizontal al centro
+draw_set_halign(fa_center);
+
+// Dibujar el texto centrado horizontalmente y alineado al centro
+draw_text(display_get_gui_width() / 2, 90, string(Player.timeElapsed));
+//draw_text(100, 100, string(Player.intVX))
+//draw_text(100, 120, string(Player.lose_speed))
+
+// Restaurar el alineado por defecto
+draw_set_halign(currentAlign);
 
 
 

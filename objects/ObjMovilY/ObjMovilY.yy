@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "objMovilV",
-    "path": "sprites/objMovilV/objMovilV.yy",
+    "name": "spMovilY",
+    "path": "sprites/spMovilY/spMovilY.yy",
   },
   "spriteMaskId": null,
   "visible": true,

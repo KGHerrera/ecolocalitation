@@ -37,7 +37,7 @@ if(!freeze and instance_exists(following)){
 	layer_x(backLayer, new_x/3)
 	layer_x(backLayer2, new_x/2)
 	layer_x(backLayer3, new_x/1.5)
-	layer_x(backLayer4, new_x/8.5)
+	layer_x(backLayer4, new_x/1.2)
 	
 	layer_x(backLayerStatic, new_x/1.01)
 
@@ -55,6 +55,11 @@ if(!end_){
 			zoom = 1.08
 		} 
 		
+		else if (Player.intVXMax > 6) {
+			other.end_value = 0.8
+			other.setZoom = true
+		}
+		
 		else if(distance_to_object(ObjBote) < 100 
 			or distance_to_object(ObjCarrito) < 100){
 			other.setZoom = true
@@ -66,10 +71,7 @@ if(!end_){
 			other.setZoom = true
 		}
 		
-		else if (Player.intVXMax > 6) {
-			other.end_value = 0.8
-			other.setZoom = true
-		} else {
+		else {
 			other.end_value = 1.15
 			other.setZoom = false
 		} 
