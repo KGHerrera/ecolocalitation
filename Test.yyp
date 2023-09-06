@@ -51,9 +51,10 @@
   "isEcma": false,
   "LibraryEmitters": [
     {"name":"Emitter","path":"particlelib/Emitter/Emitter.yy",},
+    {"name":"Emitter","path":"particlelib/Emitter/Emitter.yy",},
   ],
   "MetaData": {
-    "IDEVersion": "2023.4.0.84",
+    "IDEVersion": "2023.6.0.92",
   },
   "resources": [
     {"id":{"name":"TileJerez","path":"tilesets/TileJerez/TileJerez.yy",},},
@@ -256,6 +257,7 @@
     {"id":{"name":"ObjBasuraIndicador","path":"objects/ObjBasuraIndicador/ObjBasuraIndicador.yy",},},
     {"id":{"name":"jumpFast","path":"sprites/jumpFast/jumpFast.yy",},},
     {"id":{"name":"spTuberia","path":"sprites/spTuberia/spTuberia.yy",},},
+    {"id":{"name":"sp_letrero","path":"sprites/sp_letrero/sp_letrero.yy",},},
     {"id":{"name":"runFast","path":"sprites/runFast/runFast.yy",},},
     {"id":{"name":"sp_rampa","path":"sprites/sp_rampa/sp_rampa.yy",},},
     {"id":{"name":"ObjRampa","path":"objects/ObjRampa/ObjRampa.yy",},},

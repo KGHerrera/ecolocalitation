@@ -199,6 +199,7 @@
     {"name":"TrampolinX","order":9,"path":"objects/TrampolinX/TrampolinX.yy",},
     {"name":"ObjBasuraIndicador","order":2,"path":"objects/ObjBasuraIndicador/ObjBasuraIndicador.yy",},
     {"name":"jumpFast","order":1,"path":"sprites/jumpFast/jumpFast.yy",},
+    {"name":"sp_letrero","order":48,"path":"sprites/sp_letrero/sp_letrero.yy",},
     {"name":"runFast","order":3,"path":"sprites/runFast/runFast.yy",},
     {"name":"sp_rampa","order":26,"path":"sprites/sp_rampa/sp_rampa.yy",},
     {"name":"ObjRampa","order":8,"path":"objects/ObjRampa/ObjRampa.yy",},
