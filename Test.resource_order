@@ -123,7 +123,7 @@
     {"name":"ObjMovilF","order":9,"path":"objects/ObjMovilF/ObjMovilF.yy",},
     {"name":"ObjPlane","order":12,"path":"objects/ObjPlane/ObjPlane.yy",},
     {"name":"bgCuarto","order":7,"path":"sprites/bgCuarto/bgCuarto.yy",},
-    {"name":"Without_You","order":11,"path":"rooms/Without_You/Without_You.yy",},
+    {"name":"Salva_El_Mundo","order":11,"path":"rooms/Salva_El_Mundo/Salva_El_Mundo.yy",},
     {"name":"sPapel","order":2,"path":"sprites/sPapel/sPapel.yy",},
     {"name":"spBlp","order":29,"path":"sprites/spBlp/spBlp.yy",},
     {"name":"sp_1008","order":1,"path":"sprites/sp_1008/sp_1008.yy",},
