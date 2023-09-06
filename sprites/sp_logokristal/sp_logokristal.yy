@@ -2,10 +2,10 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "sp_logokristal",
-  "bbox_bottom": 267,
-  "bbox_left": 0,
-  "bbox_right": 530,
-  "bbox_top": 0,
+  "bbox_bottom": 106,
+  "bbox_left": 3,
+  "bbox_right": 103,
+  "bbox_top": 7,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3f9386ae-948c-40b2-8615-0288366deab1",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"5559e816-540a-4528-8450-b0262574f842",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 268,
+  "height": 112,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"9aed0d04-a2a9-48c8-824f-892b5be7ccae","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"3e6ef53d-09d2-4367-ac12-de74457e8693","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"3f9386ae-948c-40b2-8615-0288366deab1","path":"sprites/sp_logokristal/sp_logokristal.yy",},},},"Disabled":false,"id":"cd0f155f-8ddb-4dc1-b1e6-483f26bdbb28","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"5559e816-540a-4528-8450-b0262574f842","path":"sprites/sp_logokristal/sp_logokristal.yy",},},},"Disabled":false,"id":"d76b9602-7801-47e7-90be-93c1771099b2","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 531,
+  "width": 112,
 }
