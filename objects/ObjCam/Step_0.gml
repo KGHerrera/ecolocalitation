@@ -30,7 +30,7 @@ if(!freeze and instance_exists(following)){
 	layer_x(backLayer2, new_x/2)
 	layer_x(backLayer3, new_x/1.5)
 	layer_x(backLayer4, new_x/1.2)
-	layer_x(backLayerStatic, new_x/1.01)
+	layer_x(backLayerStatic, new_x/8)
 		
 	if(shakeTimer > 0){
 		new_x += random_range(-shakeMagnitud, shakeMagnitud)

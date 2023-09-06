@@ -51,10 +51,9 @@
   "isEcma": false,
   "LibraryEmitters": [
     {"name":"Emitter","path":"particlelib/Emitter/Emitter.yy",},
-    {"name":"Emitter","path":"particlelib/Emitter/Emitter.yy",},
   ],
   "MetaData": {
-    "IDEVersion": "2023.6.0.92",
+    "IDEVersion": "2023.4.0.84",
   },
   "resources": [
     {"id":{"name":"TileJerez","path":"tilesets/TileJerez/TileJerez.yy",},},
@@ -236,6 +235,7 @@
     {"id":{"name":"ObjBoteAmarillo","path":"objects/ObjBoteAmarillo/ObjBoteAmarillo.yy",},},
     {"id":{"name":"ObjTabla","path":"objects/ObjTabla/ObjTabla.yy",},},
     {"id":{"name":"sJumperRight","path":"sprites/sJumperRight/sJumperRight.yy",},},
+    {"id":{"name":"sp_store","path":"sprites/sp_store/sp_store.yy",},},
     {"id":{"name":"dash2","path":"sprites/dash2/dash2.yy",},},
     {"id":{"name":"ObjDirec","path":"objects/ObjDirec/ObjDirec.yy",},},
     {"id":{"name":"objPlatform","path":"sprites/objPlatform/objPlatform.yy",},},

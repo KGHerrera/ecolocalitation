@@ -180,6 +180,7 @@
     {"name":"spTextoBurrito","order":32,"path":"sprites/spTextoBurrito/spTextoBurrito.yy",},
     {"name":"ObjTabla","order":13,"path":"objects/ObjTabla/ObjTabla.yy",},
     {"name":"sJumperRight","order":6,"path":"sprites/sJumperRight/sJumperRight.yy",},
+    {"name":"sp_store","order":54,"path":"sprites/sp_store/sp_store.yy",},
     {"name":"dash2","order":8,"path":"sprites/dash2/dash2.yy",},
     {"name":"ObjDirec","order":12,"path":"objects/ObjDirec/ObjDirec.yy",},
     {"name":"objPlatform","order":2,"path":"sprites/objPlatform/objPlatform.yy",},
