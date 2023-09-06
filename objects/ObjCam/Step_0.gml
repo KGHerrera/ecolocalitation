@@ -7,7 +7,7 @@ if(!freeze and instance_exists(following)){
 	
 	var cam_x = camera_get_view_x(view)
 	var cam_y = camera_get_view_y(view)
-	var fol_y = following.y - 320/1.8/zoom
+	var fol_y = following.y - 320/2/zoom
 	var fol_x = following.x - 640/2/zoom
 
 	if(following.x > room_width - 640/2/zoom) {
@@ -23,23 +23,20 @@ if(!freeze and instance_exists(following)){
 	}
 	
 	
-	
 	new_y = lerp(cam_y, fol_y, spd)
-	
-	
-	if(shakeTimer > 0){
-		new_x += random_range(-shakeMagnitud, shakeMagnitud)
-		new_y += random_range(-shakeMagnitud, shakeMagnitud)
-		shakeTimer--
-	}
 	
 	//layer
 	layer_x(backLayer, new_x/3)
 	layer_x(backLayer2, new_x/2)
 	layer_x(backLayer3, new_x/1.5)
 	layer_x(backLayer4, new_x/1.2)
-	
 	layer_x(backLayerStatic, new_x/1.01)
+		
+	if(shakeTimer > 0){
+		new_x += random_range(-shakeMagnitud, shakeMagnitud)
+		new_y += random_range(-shakeMagnitud, shakeMagnitud)
+		shakeTimer--
+	}
 
 	//Check for Room Edge
 	new_x = clamp(new_x, 0, room_width - 640/zoom)

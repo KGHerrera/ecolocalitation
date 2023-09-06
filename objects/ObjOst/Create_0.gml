@@ -25,6 +25,10 @@ else if(room == Tu_Cuarto) {
 	cancion = audio_play_sound(ost_cuarto, 2, true);
 }
 
+else if(room == Without_You) {
+	cancion = audio_play_sound(without, 2, true);
+}
+
 
 else {
 	cancion = audio_play_sound(ost_test, 2, true);

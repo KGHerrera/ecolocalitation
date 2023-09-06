@@ -78,6 +78,6 @@ repeat (abs(intVY)) {
 }
 
 if(intVX != 0){
-	intVX = scrApproach(intVX, 0, 0.1);
+	intVX = scrApproach(intVX, 0, 0.075);
 }
 

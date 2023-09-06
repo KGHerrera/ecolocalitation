@@ -62,17 +62,17 @@ if keyDown and place_meeting(x, y + 1, ObjPlataform) and !place_meeting(x, y + 1
 intColLeft		  = place_meeting(x - 1, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x - 1, y, "Collision"))
 intColRight		  = place_meeting(x + 1, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x + 1, y, "Collision"))
 
-intColLeftJump = place_meeting(x - 10, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x - 10, y, "Collision"))
-intColRightJump = place_meeting(x + 10, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x + 10, y, "Collision"))
+intColLeftJump = place_meeting(x - 5, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x - 5, y, "Collision"))
+intColRightJump = place_meeting(x + 5, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x + 5, y, "Collision"))
 
-intColLeftNo	  = place_meeting(x - 15, y, ObjNoClimb) 
-intColRightNo	  = place_meeting(x + 15, y, ObjNoClimb)
+intColLeftNo	  = place_meeting(x - 10, y, ObjNoClimb) 
+intColRightNo	  = place_meeting(x + 10, y, ObjNoClimb)
 
 bolGround		  =	scrBolGround()
 intMove			  = keyRight - keyLeft;
 
 insMovilH		  = instance_place(x, y + 1, ObjMovilH)
-insMovilY		  = instance_place(x, y + 3, ObjMovilY)
+//insMovilY		  = instance_place(x, y + 3, ObjMovilY)
 insMovilF		  = instance_place(x, y + 1, ObjMovilF)
 
 bolSurface = place_meeting(x, y, ObjWater)
@@ -83,10 +83,17 @@ if(!bolSurface){
 	if(!bolGround) {
 		intTempAcc		= intAirAcc
 		intTempFric		= intAirFric
+		
+		if(loseJump < maxJumpTime){
+			loseJump += 1
+		}
+		
 	
 	} else {
 		intTempAcc		= intGroundAcc
 		intTempFric		= intGroundFric
+		
+		loseJump = 0
 	
 		if(isDashing and intVXMax < intMaxGroundDash) { 
 			intVXMax = intMaxGroundDash
@@ -224,8 +231,9 @@ if(!bolSurface) {
 
 //salto
 if(!bolSurface){
-	if (bolGround and keyJump) {
+	if ((bolGround or loseJump < maxJumpTime) and keyJump) {
 		intVY = -intJumpHeight
+		loseJump = maxJumpTime
 	}
 } else {
 	
@@ -318,7 +326,6 @@ if(intVY >= 0 and insMovilF != noone){
 		if(!bolFalling and Player.y <= y){
 			bolFalling = true
 			alarm[0] = intTimer
-			ObjCam.shakeTimer = 30
 		}
 	}
 }

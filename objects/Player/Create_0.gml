@@ -1,7 +1,8 @@
 puntaje = 0
 sound = 1
 
-lose_speed = 0
+loseJump = 0
+maxJumpTime = 5
 
 intVX           =   0
 intVY           =   0 

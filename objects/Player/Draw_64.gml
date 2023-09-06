@@ -64,12 +64,12 @@ var currentAlign = draw_get_halign();
 draw_set_halign(fa_center);
 
 // Dibujar el texto centrado horizontalmente y alineado al centro
-draw_text(display_get_gui_width() / 2, 90, string(Player.timeElapsed));
 //draw_text(100, 100, string(Player.intVX))
-//draw_text(100, 120, string(Player.lose_speed))
+//draw_text(100, 120, string(Player.loseJump))
 
 // Restaurar el alineado por defecto
 draw_set_halign(currentAlign);
+
 
 
 
