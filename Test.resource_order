@@ -167,6 +167,7 @@
     {"name":"gota_rosa","order":1,"path":"sprites/gota_rosa/gota_rosa.yy",},
     {"name":"sp_indicador","order":10,"path":"sprites/sp_indicador/sp_indicador.yy",},
     {"name":"ObjCheck","order":13,"path":"objects/ObjCheck/ObjCheck.yy",},
+    {"name":"sp_carritohelados","order":49,"path":"sprites/sp_carritohelados/sp_carritohelados.yy",},
     {"name":"spTileWater","order":2,"path":"sprites/spTileWater/spTileWater.yy",},
     {"name":"z2","order":1,"path":"sprites/z2/z2.yy",},
     {"name":"sPfondo","order":3,"path":"sprites/sPfondo/sPfondo.yy",},

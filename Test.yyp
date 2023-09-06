@@ -221,6 +221,7 @@
     {"id":{"name":"gota_rosa","path":"sprites/gota_rosa/gota_rosa.yy",},},
     {"id":{"name":"sp_indicador","path":"sprites/sp_indicador/sp_indicador.yy",},},
     {"id":{"name":"ObjCheck","path":"objects/ObjCheck/ObjCheck.yy",},},
+    {"id":{"name":"sp_carritohelados","path":"sprites/sp_carritohelados/sp_carritohelados.yy",},},
     {"id":{"name":"spTileWater","path":"sprites/spTileWater/spTileWater.yy",},},
     {"id":{"name":"z2","path":"sprites/z2/z2.yy",},},
     {"id":{"name":"sPfondo","path":"sprites/sPfondo/sPfondo.yy",},},
