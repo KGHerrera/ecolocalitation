@@ -19,6 +19,15 @@ if(!talking){
 	keyA	  =   0
 }
 
+if (timeElapsed >= 380-200) {
+	// En el evento Draw del objeto que muestra el sprite
+
+image_blend = merge_color(image_blend, make_color_rgb(131, 235, 173), 0.3-0.2); // Mezclar con verde al 50%
+if(timeElapsed == 300){
+room_restart()
+}
+} 
+
 // cosas del timer
 if(keyRight or keyLeft or keyJump){
 	startTimer = true
@@ -140,8 +149,8 @@ if (isDashing) {
 	
 	
 	// trail effect
-	/*
-	if(dashDuration % 6 == 0){
+
+	if(dashDuration % 3 == 0){
 		with(instance_create_layer(x, y, "Instances", ObjTrail)) {
 			sprite_index = other.sprite_index
 			image_blend = c_white
@@ -150,7 +159,7 @@ if (isDashing) {
 			image_yscale = other.spriteSize
 		}
 	}
-	*/
+
 	
 	
 	intVX = scrApproach(intVX, intVXMax * intMove, intTempAcc * 2)
