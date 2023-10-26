@@ -9,14 +9,6 @@ else if(room == Harden_than_Yatagarassu){
 	cancion = audio_play_sound(snd_yata, 2, true);
 }
 
-else if(room == minijuego) {
-	cancion = audio_play_sound(ost_minijuego, 2, true);
-}
-
-else if(room == Puntuacion) {
-	cancion = audio_play_sound(ost_pointer, 2, true);
-}
-
 else if(room == Barranco_de_ajo_muerto) {
 	cancion = audio_play_sound(ost_desert, 2, true);
 }

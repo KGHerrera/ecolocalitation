@@ -19,13 +19,13 @@ if(!talking){
 	keyA	  =   0
 }
 
-if (timeElapsed >= 380-200) {
+if (timeElapsed >= 180) {
 	// En el evento Draw del objeto que muestra el sprite
-
-image_blend = merge_color(image_blend, make_color_rgb(131, 235, 173), 0.3-0.2); // Mezclar con verde al 50%
-if(timeElapsed == 300){
-room_restart()
-}
+	image_blend = merge_color(image_blend, make_color_rgb(131, 235, 173), 0.1); // Mezclar con verde al 50%
+	
+	if(timeElapsed == 300){
+		room_restart()
+	}
 } 
 
 // cosas del timer
@@ -150,11 +150,11 @@ if (isDashing) {
 	
 	// trail effect
 
-	if(dashDuration % 3 == 0){
+	if(dashDuration % 2 == 0){
 		with(instance_create_layer(x, y, "Instances", ObjTrail)) {
 			sprite_index = other.sprite_index
 			image_blend = c_white
-			image_alpha = 0.7
+			image_alpha = 0.3
 			image_xscale = other.spriteSize * other.intMove
 			image_yscale = other.spriteSize
 		}
