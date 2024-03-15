@@ -6,7 +6,7 @@ if (end_){
 if(wait > 0 and end_){
 	wait--
 	if(wait = 80){
-		instance_create_depth(0,0,  Player.depth + 1 , ObjTransition)
+		instance_create_depth(0,0,  obj_player.depth + 1 , ObjTransition)
 		
 		if(instance_exists(ObjOst)){
 			ObjOst.end_volume = 0

@@ -1,8 +1,8 @@
-backLayer = layer_get_id("bg_1")
-backLayer2 = layer_get_id("bg_2")
-backLayer3 = layer_get_id("bg_3")
-backLayer4 = layer_get_id("bg_4")
-backLayerStatic = layer_get_id("bg_static")
+bg_1 = layer_get_id("bg_1")
+bg_2 = layer_get_id("bg_2")
+bg_3 = layer_get_id("bg_3")
+bg_4 = layer_get_id("bg_4")
+bg_5 = layer_get_id("bg_static")
 
 freeze = false;
 
@@ -22,8 +22,8 @@ spd = 0.08
 
 end_ = false
 
-if(instance_exists(Player)){
-	following = Player
-} else if instance_exists(ObjBoteVerde){
-	following = ObjBoteVerde
+if(instance_exists(obj_player)){
+	following = obj_player
+} else if instance_exists(obj_bote_verde){
+	following = obj_bote_verde
 }

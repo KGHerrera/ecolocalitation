@@ -1,37 +1,37 @@
-y += intVY
+y += int_vy
 
-repeat(abs(intVY)){
-	if(place_meeting(x, y + sign(intVY), ObjBlock) or scrTileMeeting(x, y + sign(intVY), "Collision")){
-		intVY *= -1
+repeat(abs(int_vy)){
+	if(place_meeting(x, y + sign(int_vy), ObjBlock) or scrTileMeeting(x, y + sign(int_vy), "Collision")){
+		int_vy *= -1
 		break
 	}
 }
 
-if(Player.intVY >= -1){
-	if(place_meeting(x, y - 1, Player) && !place_meeting(x, y, Player)){
-		with(Player) {
-			intVY = other.intVY
+if(obj_player.int_vy >= -1){
+	if(place_meeting(x, y - 1, obj_player) && !place_meeting(x, y, obj_player)){
+		with(obj_player) {
+			int_vy = other.int_vy
 		}
 	}
 
-	else if(place_meeting(x, y - 2, Player) && !place_meeting(x, y, Player)){
-		with(Player){
+	else if(place_meeting(x, y - 2, obj_player) && !place_meeting(x, y, obj_player)){
+		with(obj_player){
 			if(y < other.y) y++
-			intVY = other.intVY
+			int_vy = other.int_vy
 		}
 	}
 
-	else if(place_meeting(x, y - 3, Player) && !place_meeting(x, y, Player)){
-		with(Player){
+	else if(place_meeting(x, y - 3, obj_player) && !place_meeting(x, y, obj_player)){
+		with(obj_player){
 			if(y < other.y) y += 2
-			intVY = other.intVY
+			int_vy = other.int_vy
 		}
 	}
 	
-	else if(place_meeting(x, y - 4, Player) && !place_meeting(x, y, Player)){
-		with(Player){
+	else if(place_meeting(x, y - 4, obj_player) && !place_meeting(x, y, obj_player)){
+		with(obj_player){
 			if(y < other.y) y += 3
-			intVY = other.intVY
+			int_vy = other.int_vy
 		}
 	}
 }

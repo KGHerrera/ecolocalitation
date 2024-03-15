@@ -5,17 +5,17 @@ multiplicador	=   0.5
 
 puntaje = 0;
 
-intVX           =   0
-intVY           =   0 
-intMove			=   0
+int_vx           =   0
+int_vy           =   0 
+int_move			=   0
 
 spriteSize = 2
 
 // Aceleracion
 
-intVYMax		=   12   * multiplicador	
-intVXMax		=	8    * multiplicador	
-intVXReset		=	8    * multiplicador	
+int_vyMax		=   12   * multiplicador	
+int_vxMax		=	8    * multiplicador	
+int_vxReset		=	8    * multiplicador	
 
 intJumpHeight   =   18   * multiplicador	
 intGravityNorm	=   1  * multiplicador	

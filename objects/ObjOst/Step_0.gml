@@ -1,10 +1,10 @@
 /// @description Inserte aquí la descripción
 // Puede escribir su código en este editor
 
-if(instance_exists(Player)){
-	if(Player.talking){
+if(instance_exists(obj_player)){
+	if(obj_player.talking){
 		soundMax = lerp(soundMax, 0.2, 0.05)
-	}  else if(Player.bolSurface){
+	}  else if(obj_player.bol_surface){
 		soundMax = lerp(soundMax, 0.5, 0.2)
 	}
 	else{

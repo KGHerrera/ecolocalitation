@@ -1,4 +1,4 @@
-global.draw_set_font(Pixel2)
+//draw_set_font(Pixel2)
 
 dialog = new Dialogue();
 

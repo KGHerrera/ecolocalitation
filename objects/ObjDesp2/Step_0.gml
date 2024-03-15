@@ -12,14 +12,14 @@ if(timer2 > waitTime * room_speed){
 	// Si aún no ha llegado el tiempo total, seguir desapareciendo
 	if (timer < totalTime) {
 	    // Aquí puedes agregar la lógica para mover o cambiar el objeto
-	    mask_index = spMovilY;
+	    mask_index = spInactive;
 		if(!blinking) image_alpha = 1;
 	} else {
 	    // El tiempo total ha pasado, destruir el objeto o realizar alguna acción de finalización
 	    // destroy
 		blinking = false;
 	    mask_index = sp_nothing;
-		image_alpha = 0;
+		image_alpha = 0.2;
 
 	    // Reiniciar el temporizador y el estado de parpadeo para volver a aparecer en 5 segundos
 	    if (timer >= totalTime * 2) {

@@ -7,8 +7,8 @@ intGroundFric	=   0.2
 intAirAcc		=   1
 intAirFric		=   .2
 
-intVYMax		=   6	
-intVXMax		=	4
+int_vyMax		=   6	
+int_vxMax		=	4
 
-intVY = 0
-intVX = 0
+int_vy = 0
+int_vx = 0

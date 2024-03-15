@@ -17,7 +17,7 @@ if (timer < totalTime) {
     // destroy
 	blinking = false;
     mask_index = sp_nothing;
-	image_alpha = 0;
+	image_alpha = 0.2;
 
     // Reiniciar el temporizador y el estado de parpadeo para volver a aparecer en 5 segundos
     if (timer >= totalTime * 2) {

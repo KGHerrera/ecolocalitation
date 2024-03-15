@@ -1,13 +1,13 @@
 /// @description Inserte aquí la descripción
 // Puede escribir su código en este editor
 if(!bolFall) {
-	intVY = 0
+	int_vy = 0
 }
 else {
-	intVY = scrApproach(intVY, intVYMax, intGravity)
+	int_vy = scrApproach(int_vy, int_vyMax, intGravity)
 }
 
-y += intVY
+y += int_vy
 
 if(!bolFalling){
 	sprite_index = spMovilF
@@ -16,7 +16,7 @@ if(!bolFalling){
 }
 
 
-if((y >= room_height + 150) and bolFall){
+if((y >= room_height + 50) and bolFall){
 	alarm[1] = intTimer * 2.5
 	bolFall = false
 }

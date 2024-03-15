@@ -7,10 +7,10 @@ keyJump	  =	  gamepad_button_check_pressed(0, gp_face1)
 keyX	  =   gamepad_button_check(0, gp_face3)
 keyA	  =   gamepad_button_check(0, gp_shoulderr)
 
-if(isDash and intVXMax < 6){
-	intVXMax = intMaxDashAcc
-} else if(intVX < intVXReset and intVX > -intVXReset){
-	intVXMax = intVXReset
+if(isDash and int_vxMax < 6){
+	int_vxMax = intMaxDashAcc
+} else if(int_vx < int_vxReset and int_vx > -int_vxReset){
+	int_vxMax = int_vxReset
 } 
 
 
@@ -27,7 +27,7 @@ intColLeftNo	  = place_meeting(x - 1, y, ObjNoClimb)
 intColRightNo	  = place_meeting(x + 1, y, ObjNoClimb)
 
 bolGround		  =	scrBolGround()
-intMove			  = keyRight - keyLeft;
+int_move			  = keyRight - keyLeft;
 
 insMovilH = instance_place(x, y + 1, ObjMovilH)
 
@@ -39,7 +39,7 @@ if(!bolGround){
 } else {
 	
 	if(isDash) { 
-		intVXMax = 6 
+		int_vxMax = 6 
 	}
 	
 	gamepad_button_check_released(0, gp_face3)
@@ -54,16 +54,16 @@ if (keyX and !bolGround and canDash) {
 	isDash			= true
     dashDuration	-=  1
 	
-	intVX = scrApproach(intVX, intVXMax * intMove, intTempAcc*2)
+	int_vx = scrApproach(int_vx, int_vxMax * int_move, intTempAcc*2)
 	
 	if(keyUp) {
-		intVY = scrApproach(intVY, -intMaxDashAcc, intTempAcc * 4)
+		int_vy = scrApproach(int_vy, -intMaxDashAcc, intTempAcc * 4)
 	}
 	else if(keyDown) {
-		intVY = scrApproach(intVY, intVYMax, intTempAcc * 4)
+		int_vy = scrApproach(int_vy, int_vyMax, intTempAcc * 4)
 	}
 	else {
-		intVY	= -intGravityNorm
+		int_vy	= -intGravityNorm
 	}
 	if (dashDuration == 0) {
 		canDash = false
@@ -91,70 +91,70 @@ if (flashAlpha > 0) {
 }
 
 // friccion
-if (intMove != 0){
-	intVX = scrApproach(intVX, intVXMax * intMove, intTempAcc)
+if (int_move != 0){
+	int_vx = scrApproach(int_vx, int_vxMax * int_move, intTempAcc)
 }
 else {
-	intVX = scrApproach(intVX, intVXMax * intMove, intTempFric)
+	int_vx = scrApproach(int_vx, int_vxMax * int_move, intTempFric)
 }
 
 // Velocidad sobre plataforma movil
 if(instance_place(x, y+1, ObjMovilH) and !instance_place(x, y, ObjMovilH)){
-	x += insMovilH.intVX 
+	x += insMovilH.int_vx 
 }
 
 // Velocidad vertical // caida libre
 if (!bolGround){
-	if ((intColLeft or intColRight) and (intVY >= 0) and (keyLeft or keyRight)) {
-		intVY = scrApproach(intVY, intVYMax/3, intGravitySlide)
+	if ((intColLeft or intColRight) and (int_vy >= 0) and (keyLeft or keyRight)) {
+		int_vy = scrApproach(int_vy, int_vyMax/3, intGravitySlide)
 		
 	}
 	else {
-		intVY = scrApproach(intVY, intVYMax, intGravityNorm)
+		int_vy = scrApproach(int_vy, int_vyMax, intGravityNorm)
 	}
 }
 
 // Salto
 if (bolGround and keyJump) {
-	intVY = -intJumpHeight
+	int_vy = -intJumpHeight
 }
 
 // Salto pequeño
 if (keyboard_check_released(ord("Z")) or gamepad_button_check_released(0, gp_face1) ){
-	if(intVY < 0) {
-		intVY *= 0.5
+	if(int_vy < 0) {
+		int_vy *= 0.5
 	}
 }
 
 // Colicion horizontal
-repeat (abs(intVX)) {
+repeat (abs(int_vx)) {
 	// Colicion horizontal
-    if (!place_meeting(x + sign(intVX), y, ObjBlock)) x += sign(intVX)
-	else { intVX =   0; break }
+    if (!place_meeting(x + sign(int_vx), y, ObjBlock)) x += sign(int_vx)
+	else { int_vx =   0; break }
 }
 
 // Trampolines
-if (place_meeting(x, y + 1, Trampolin) or  place_meeting(x, y, Trampolin)) {
-	intVY = -25 * multiplicador
+if (place_meeting(x, y + 1, obj_trampolin_abajo) or  place_meeting(x, y, obj_trampolin_abajo)) {
+	int_vy = -25 * multiplicador
 	keyboard_key_release(ord("X"))
 	tramp = true
 }
 
-if place_meeting(x + sign(intVX), y, TrampolinX) or place_meeting(x + sign(intVX), y, TrampolinX2) {
+if place_meeting(x + sign(int_vx), y, obj_trampolin_izquierda) or place_meeting(x + sign(int_vx), y, obj_trampolin_derecha) {
 	canDash = false
 }
 	
-if place_meeting(x + sign(intVX), y, TrampolinX) {
+if place_meeting(x + sign(int_vx), y, obj_trampolin_izquierda) {
 	keyboard_key_release(ord("X"))
-	intVY = -20 * multiplicador
-	intVX = 35  * multiplicador
+	int_vy = -20 * multiplicador
+	int_vx = 35  * multiplicador
 	tramp = true
 }
 
-if place_meeting(x + sign(intVX), y, TrampolinX2) {
+if place_meeting(x + sign(int_vx), y, obj_trampolin_derecha) {
 	keyboard_key_release(ord("X"))
-	intVY = -20 * multiplicador
-	intVX = -35 * multiplicador
+	int_vy = -20 * multiplicador
+	int_vx = -35 * multiplicador
 	tramp = true
 }
 
@@ -170,37 +170,37 @@ if tramp {
 
 
 // Colicion vertical
-repeat (abs(intVY)) { 
-    if (place_meeting(x, y + sign(intVY) ,ObjBlock)){
-		intVY = 0
+repeat (abs(int_vy)) { 
+    if (place_meeting(x, y + sign(int_vy) ,ObjBlock)){
+		int_vy = 0
 		break
-	} else if (place_meeting(x, y + sign(intVY), ObjPlataform) and !place_meeting(x, y, ObjPlataform) and intVY >= 0){
-		intVY = 0
+	} else if (place_meeting(x, y + sign(int_vy), ObjPlataform) and !place_meeting(x, y, ObjPlataform) and int_vy >= 0){
+		int_vy = 0
 		break
-	} else if (place_meeting(x, y + sign(intVY), ObjMovilH) and !place_meeting(x, y, ObjMovilH) and intVY >= 0){
-		intVY = 0
+	} else if (place_meeting(x, y + sign(int_vy), ObjMovilH) and !place_meeting(x, y, ObjMovilH) and int_vy >= 0){
+		int_vy = 0
 		break
-	} else y += sign(intVY)
+	} else y += sign(int_vy)
 }
  
 // Animacion
 // reflejo del personaje
-if (intMove != 0 and keyA) image_xscale = -intMove * spriteSize
-else if (intMove != 0) image_xscale = intMove * spriteSize
+if (int_move != 0 and keyA) image_xscale = -int_move * spriteSize
+else if (int_move != 0) image_xscale = int_move * spriteSize
 
 if !bolGround {
 	
-	if (isDash and intVX == 0) {
+	if (isDash and int_vx == 0) {
 		sprite_index = midair3
 	}
 	else if (isDash) {
 		sprite_index = dash3	
 	}
-	else if (intColLeft and keyLeft and intVY > 0) {
+	else if (intColLeft and keyLeft and int_vy > 0) {
 		sprite_index = midair3
 		image_xscale = spriteSize
 	
-	} else if (intColRight and keyRight and intVY > 0) {
+	} else if (intColRight and keyRight and int_vy > 0) {
 		sprite_index = midair3
 		image_xscale = -spriteSize
 	} 	
@@ -208,7 +208,7 @@ if !bolGround {
 }
 // cambio de animacion
 else {
-	if(intVX != 0) sprite_index    =   walk3
+	if(int_vx != 0) sprite_index    =   walk3
     else sprite_index			   =   stand3
 } 
 
@@ -223,18 +223,18 @@ if(intColLeft and keyJump and !bolGround and !intColLeftNo){
 	canDash = true
 	dashDuration = maxDash
 	
-	//if (keyUp) { intVX = intVXMax * 3; intVY = -intJumpHeight * 1.2 }
-	if(intMove < 0){ intVX = intVXMax * 1; intVY = -intJumpHeight * 1 } 
-	//else{ intVX = intVXMax * 2; intVY = -intJumpHeight * 1.2 }
+	//if (keyUp) { int_vx = int_vxMax * 3; int_vy = -intJumpHeight * 1.2 }
+	if(int_move < 0){ int_vx = int_vxMax * 1; int_vy = -intJumpHeight * 1 } 
+	//else{ int_vx = int_vxMax * 2; int_vy = -intJumpHeight * 1.2 }
 }
 
 if(intColRight and keyJump and !bolGround and !intColRightNo){
 	canDash = true
 	dashDuration = maxDash
 	
-	//if (keyUp) { intVX = -intVXMax * 3; intVY = -intJumpHeight * 1.2 }
-	if(intMove > 0){ intVX = -intVXMax * 1; intVY = -intJumpHeight * 1}
-	// else { intVX = -intVXMax * 2; intVY = -intJumpHeight * 1.2 }
+	//if (keyUp) { int_vx = -int_vxMax * 3; int_vy = -intJumpHeight * 1.2 }
+	if(int_move > 0){ int_vx = -int_vxMax * 1; int_vy = -intJumpHeight * 1}
+	// else { int_vx = -int_vxMax * 2; int_vy = -intJumpHeight * 1.2 }
 }
 
 
@@ -246,8 +246,8 @@ if(intColRight and keyJump and !bolGround and !intColRightNo){
 //if (place_meeting(x-2, y-2, ObjPez) or place_meeting(x-2, y-2, ObjZeta) or place_meeting(x-2, y-2, ObjGhost) and ObjGhost.image_alpha >= 1) and regeneration == maxRegeneration{
 //	enemyColition = true
 //	vidas--
-//	intVX = 15 * -intMove * multiplicador
-//	intVY = -15 * multiplicador
+//	int_vx = 15 * -int_move * multiplicador
+//	int_vy = -15 * multiplicador
 //	keyboard_key_release(ord("X"))
 //}
 

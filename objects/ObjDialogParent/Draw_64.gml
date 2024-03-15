@@ -1,12 +1,12 @@
 if (showing_dialog == true) {
-	global.draw_set_font(Pixel2)
+	draw_set_font(Pixel2)
 	var text_x = 30;
 	var text_y = 18;
 	var height = 32;
 	var border = 5;
 	var padding = 32;
 	
-	height = string_height(current_dialog.message);
+	height = string_height(current_dialog.message + "");
 	
 	if (sprite_get_height(current_dialog.sprite) > height) {
 		height = sprite_get_height(current_dialog.sprite);
@@ -34,7 +34,7 @@ if (showing_dialog == true) {
 	draw_text_ext(text_x + 50, text_y + 100, current_dialog.message, 32 /*separacion de linea*/, display_get_gui_width() - 192 - 100);
 	
 	alpha = lerp(alpha, 1, 1);
-	global.draw_set_font(Pixel)
+	draw_set_font(Pixel)
 }
 
 draw_set_alpha(1);

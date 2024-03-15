@@ -12,8 +12,8 @@ if(animation_time > 0){
 	targetHeight = 0
 	targetX = -display_get_gui_width()
 	
-	if(instance_exists(Player)){
-		if(Player.isPlaning or Player.talking or mensajeTime > 0){
+	if(instance_exists(obj_player)){
+		if(obj_player.isPlaning or obj_player.talking or mensajeTime > 0){
 			targetHeight = display_get_gui_height() / 12
 		}	
 	}

@@ -1,6 +1,6 @@
 /// @description Inserte aquí la descripción
 // Puede escribir su código en este editor
-global.draw_set_font(Pixel)
+//global.draw_set_font(Pixel)
 display_set_gui_size(1366, 768)
 
 currentHeight = display_get_height() 

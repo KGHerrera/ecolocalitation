@@ -37,10 +37,10 @@ if(!freeze and instance_exists(following)){
 	}
 	
 	//layer
-	layer_x(backLayer, new_x/3)
-	layer_x(backLayer2, new_x/2)
-	layer_x(backLayer3, new_x/4)
-	layer_x(backLayer4, new_x/8.5)
+	layer_x(bg_1, new_x/3)
+	layer_x(bg_2, new_x/2)
+	layer_x(bg_3, new_x/4)
+	layer_x(bg_4, new_x/8.5)
 
 	//Check for Room Edge
 	new_x = clamp(new_x, 0, room_width - 640/zoom)
@@ -50,24 +50,24 @@ if(!freeze and instance_exists(following)){
 	camera_set_view_size(view, 640/zoom, 320/zoom);	
 
 if(!end_){
-	with(Player){
+	with(obj_player){
 		
-		if(other.following == ObjBote){
+		if(other.following == obj_bote){
 			zoom = 1.08
 		} 
 		
-		else if(distance_to_object(ObjBote) < 100 
+		else if(distance_to_object(obj_bote) < 100 
 			or distance_to_object(ObjCarrito) < 100){
 			other.setZoom = true
 			other.end_value = 1.15
 		}
 		
-		else if(distance_to_object(ObjEnd) < 200){
+		else if(distance_to_object(obj_estrella_final) < 200){
 			other.end_value = 0.9
 			other.setZoom = true
 		}
 		
-		else if (Player.intVXMax > 6) {
+		else if (obj_player.int_vxMax > 6) {
 			other.end_value = 0.8
 			other.setZoom = true
 		} else {
@@ -78,7 +78,7 @@ if(!end_){
 } else{
 	end_value = 0.8
 	setZoom = true
-	following = ObjEnd
+	following = obj_estrella_final
 }
 	
 	if(setZoom){
