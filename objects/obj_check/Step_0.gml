@@ -1,5 +1,5 @@
-if(instance_exists(ObjControl)){
-	end_ = ObjControl.end_
+if(instance_exists(obj_control)){
+	end_ = obj_control.end_
 }
 
 if(place_meeting(x, y, obj_player) and !end_){
@@ -15,9 +15,9 @@ if(check){
 	if(image_alpha == 1){
 		audio_play_sound(snd_check, 1, false)
 		
-		if(instance_exists(ObjControl)){
-			ObjControl.mensaje_ayuda = "Punto de control ..."
-			ObjControl.mensajeTime = 150
+		if(instance_exists(obj_control)){
+			obj_control.mensaje_ayuda = "Punto de control ..."
+			obj_control.mensajeTime = 150
 			showMessage = true			
 		}
 		

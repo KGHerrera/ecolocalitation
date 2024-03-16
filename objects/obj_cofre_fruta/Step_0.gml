@@ -6,14 +6,14 @@ if(distance_to_object(obj_player) < 50  and obj_player.bolGround and pressCont <
 	
 	if(obj_player.keyX and pressCont < 1){
 		pressCont++
-		ObjCam.shakeTimer = 30
+		obj_cam.shakeTimer = 30
 		
 		if(pressCont == 1){
 			sprite_index = spCofreC
 			createInstances = true
 			//instance_create_depth(x, y - 32, depth - 1, ObjBird)
 			
-			particula = part_system_create(psFly)
+			particula = part_system_create(ps_volar)
 			part_system_position(particula, x, y - 32)
 			
 			audio_play_sound(snd_bote, 2, false)

@@ -14,13 +14,13 @@ if(y < 0){
 }
 	
 
-if(instance_exists(ObjControl)){
-	end_ = ObjControl.end_
+if(instance_exists(obj_control)){
+	end_ = obj_control.end_
 }
 
 if(place_meeting(x, y, obj_player) and !cat and !end_) {
 	
-	with(instance_create_layer(x, y, "Instances", ObjText)){
+	with(instance_create_layer(x, y, "Instances", obj_text)){
 		sprite_index = sp_5008
 		audio_play_sound(snd_basura, 1, false)
 	}

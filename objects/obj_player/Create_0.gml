@@ -65,7 +65,7 @@ isPlaning = false
 talking = false
 dieTime = 20
 
-plane = instance_create_depth(x, y, depth - 1, ObjPlane)
+plane = instance_create_depth(x, y, depth - 1, obj_plane)
 play = 10
 
 with(plane){
@@ -95,4 +95,17 @@ coldown_left = 0
 coldown_right = 0
 
 jump = false
+
+scaling = false
+
+barrel = false
+barrel_coldown = 10
+
+no_sprite = false
+
+reload_sound = 10
+
+time_die = 50
+xDie = x
+yDie = y
 

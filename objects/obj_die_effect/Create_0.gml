@@ -1,0 +1,1 @@
+cont_destroy = 0

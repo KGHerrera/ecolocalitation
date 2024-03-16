@@ -4,11 +4,11 @@ displacement += 0.05;
 y = y + sin(displacement) * .7;
 x += direccion
 
-if(place_meeting(x + 30, y, ObjBlock) or scrTileMeeting(x + 30, y, "Collision")){
+if(place_meeting(x + 30, y, obj_block) or scrTileMeeting(x + 30, y, "Collision")){
 	image_xscale = -1
 	direccion *= -1
 } 
-else if(place_meeting(x - 30, y, ObjBlock) or scrTileMeeting(x - 30, y, "Collision")){
+else if(place_meeting(x - 30, y, obj_block) or scrTileMeeting(x - 30, y, "Collision")){
 	image_xscale = 1
 	direccion *= -1
 } 

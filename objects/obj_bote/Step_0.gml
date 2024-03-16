@@ -4,8 +4,8 @@ if distance_to_object(obj_player) < 500 or !instance_exists(obj_player){
   visible = false;
 }
 
-if(instance_exists(ObjControl)){
-	end_ = ObjControl.end_
+if(instance_exists(obj_control)){
+	end_ = obj_control.end_
 }
 
 if (distance_to_object(obj_player) < 40 and obj_player.bolGround and !end_) {
@@ -36,7 +36,7 @@ if (distance_to_object(obj_player) < 40 and obj_player.bolGround and !end_) {
 					obj_player.basuraRecolectada++
 				}	
 				
-				with(instance_create_layer(x, y - 10, "Instances", ObjText)){
+				with(instance_create_layer(x, y - 10, "Instances", obj_text)){
 					sprite_index = sp_1008
 				}
 			} 
@@ -48,9 +48,9 @@ if (distance_to_object(obj_player) < 40 and obj_player.bolGround and !end_) {
 }
 
 if(showMesaje){
-	if(instance_exists(ObjControl)){
-		ObjControl.mensaje_ayuda = mensaje
-		ObjControl.mensajeTime = 180
+	if(instance_exists(obj_control)){
+		obj_control.mensaje_ayuda = mensaje
+		obj_control.mensajeTime = 180
 		audio_play_sound(snd_error, 1, false)
 	}
 	

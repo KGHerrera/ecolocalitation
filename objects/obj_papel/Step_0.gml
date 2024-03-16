@@ -9,8 +9,8 @@ if distance_to_object(obj_player) < 500 {
   visible = false;
 }
 
-if(instance_exists(ObjControl)){
-	end_ = ObjControl.end_
+if(instance_exists(obj_control)){
+	end_ = obj_control.end_
 	if(end_){
 			
 		image_alpha-= 0.05
@@ -36,7 +36,7 @@ if (distance_to_object(obj_player) < 20 and !startFollow and obj_player.papel < 
 			audio_play_sound(snd_combo, 10, false, .8, 0, sound)
 			puntaje += 1000
 			
-			with(instance_create_layer(x, y - 50, "Instances", ObjText)){
+			with(instance_create_layer(x, y - 50, "Instances", obj_text)){
 				sprite_index = sp_10008
 			}
 			
@@ -44,7 +44,7 @@ if (distance_to_object(obj_player) < 20 and !startFollow and obj_player.papel < 
 		} else {
 			audio_play_sound(snd_combo, 10, false, .8, 0, sound)
 			puntaje += 20
-			with(instance_create_layer(x, y - 50, "Instances", ObjText)){
+			with(instance_create_layer(x, y - 50, "Instances", obj_text)){
 				
 			}
 		}
@@ -52,9 +52,9 @@ if (distance_to_object(obj_player) < 20 and !startFollow and obj_player.papel < 
 	}	
 	
 } else if(obj_player.papel == 10 and place_meeting(x, y, obj_player) and !startFollow){
-	if(instance_exists(ObjControl)){
-		ObjControl.mensaje_ayuda = mensaje
-		ObjControl.mensajeTime = 100
+	if(instance_exists(obj_control)){
+		obj_control.mensaje_ayuda = mensaje
+		obj_control.mensajeTime = 100
 	}
 }
 

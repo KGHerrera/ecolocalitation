@@ -13,8 +13,8 @@
     "path":"folders/Objects/basura.yy",
   },
   "parentObjectId":{
-    "name":"ObjFisica",
-    "path":"objects/ObjFisica/ObjFisica.yy",
+    "name":"obj_fisicas",
+    "path":"objects/obj_fisicas/obj_fisicas.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

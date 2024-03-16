@@ -3,13 +3,13 @@
 
 if(!talking){
 	if (!(coldown_right > 0)) {
-		keyRight  = keyboard_check(ord("L")) or gamepad_axis_value(0, gp_axislh) or keyboard_check(vk_right) or gamepad_button_check(0, gp_padr)
-		
+		keyRight  = keyboard_check(ord("L")) or gamepad_axis_value(0, gp_axislh) or keyboard_check(vk_right) or gamepad_button_check(0, gp_padr)	
 	} else coldown_right--
 	if (!(coldown_left > 0)) {
 		keyLeft   = keyboard_check(ord("J")) or -gamepad_axis_value(0, gp_axislh) or keyboard_check(vk_left) or gamepad_button_check(0, gp_padl)
 		
 	} else coldown_left--
+	
 	keyUp     = keyboard_check(ord("I")) or -gamepad_axis_value(0, gp_axislv) or keyboard_check(vk_up) or gamepad_button_check(0, gp_padu)
 	keyDown   = keyboard_check(ord("K")) or gamepad_axis_value(0, gp_axislv) or keyboard_check(vk_down) or gamepad_button_check(0, gp_padd)
 	keyJump	  =	  keyboard_check_pressed(ord("Z")) or gamepad_button_check_pressed(0, gp_face1)
@@ -31,23 +31,9 @@ if(keyRight or keyLeft or keyJump){
 	startTimer = true
 }
 
-if (!ObjControl.end_ && startTimer) {
+if (!obj_control.end_ && startTimer) {
     timeElapsed += delta_time / room_speed / 10000;
 }
-
-// velocidades dinamicas
-/*
-if(abs(int_vx) >= intMaxDashAcc){
-	lose_speed = 20
-}
-
-else{
-	
-	if(lose_speed > 0){
-		lose_speed--
-	}
-}
-*/
 
 if(int_vxMax > intMaxGroundDash){
 	int_vxMax = scrApproach(int_vxMax, intMaxGroundDash, 0.01);
@@ -61,28 +47,45 @@ if(isDashing and int_vxMax < intMaxGroundDash){
 
 
 // Caida desde plataforma
-if keyDown and place_meeting(x, y + 1, ObjPlataform) and !place_meeting(x, y + 1, ObjBlock) {
+
+if(layer_exists("Collision")){
+	if keyDown and place_meeting(x, y + 1, obj_plataforma) and (!place_meeting(x, y + 1, obj_block) and !scrTileMeeting(x, y+1, "Collision")) {
+		y++
+	}
+} else {
+	if keyDown and place_meeting(x, y + 1, obj_plataforma) and (!place_meeting(x, y + 1, obj_block)) {
 	y++
 }
+}
+
+
 
 // comprobacion de coliciones
-intColLeft		  = place_meeting(x - 1, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x - 1, y, "Collision"))
-intColRight		  = place_meeting(x + 1, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x + 1, y, "Collision"))
+intColLeft		  = place_meeting(x - 1, y, obj_block) or (layer_exists("Collision") and scrTileMeeting(x - 1, y, "Collision"))
+intColRight		  = place_meeting(x + 1, y, obj_block) or (layer_exists("Collision") and scrTileMeeting(x + 1, y, "Collision"))
 
-intColLeftJump = place_meeting(x - 5, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x - 5, y, "Collision"))
-intColRightJump = place_meeting(x + 5, y, ObjBlock) or (layer_exists("Collision") and scrTileMeeting(x + 5, y, "Collision"))
+intColLeftJump = place_meeting(x - 5, y, obj_block) or (layer_exists("Collision") and scrTileMeeting(x - 5, y, "Collision"))
+intColRightJump = place_meeting(x + 5, y, obj_block) or (layer_exists("Collision") and scrTileMeeting(x + 5, y, "Collision"))
 
-intColLeftNo	  = place_meeting(x - 10, y, ObjNoClimb) 
-intColRightNo	  = place_meeting(x + 10, y, ObjNoClimb)
+intColLeftNo	  = place_meeting(x - 10, y, obj_no_escalar) 
+intColRightNo	  = place_meeting(x + 10, y, obj_no_escalar)
 
 bolGround		  =	scrBolGround()
-int_move			  = keyRight - keyLeft;
 
-insMovilH		  = instance_place(x, y + 1, ObjMovilH)
+
+
+
+if (!scaling) {
+	int_move		  = keyRight - keyLeft;
+} else {
+	int_move = 0
+}
+
+insMovilH		  = instance_place(x, y + 1, obj_plat_movil_horizontal)
 //insMovilY		  = instance_place(x, y + 3, ObjMovilY)
-insMovilF		  = instance_place(x, y + 1, ObjMovilF)
+insMovilF		  = instance_place(x, y + 1, obj_plat_cae)
 
-bol_surface = place_meeting(x, y, ObjWater)
+bol_surface = place_meeting(x, y, obj_agua)
 
 if(!bol_surface){
 
@@ -130,7 +133,7 @@ if(!bol_surface){
 }
 
 // Velocidad horizontal
-if((keyJump )and !bolGround and canDash and !intColLeft and !intColRight and lose_jump = max_jump_time){
+if((keyJump )and !bolGround and canDash and !intColLeft and !intColRight and lose_jump = max_jump_time and !scaling){
 	isDashing = true
 }
 
@@ -153,7 +156,7 @@ if (isDashing) {
 	coldown_left = 0
 
 	if(dashDuration % 3 == 0){
-		with(instance_create_layer(x, y, "Instances", ObjTrail)) {
+		with(instance_create_layer(x, y, "Instances", obj_trail)) {
 			
 			sprite_index = other.sprite_index
 			image_blend = c_white
@@ -215,7 +218,7 @@ if(!bol_surface){
 
 
 // Velocidad sobre plataforma movil
-if(instance_place(x, y + 1, ObjMovilH) and !instance_place(x, y, ObjMovilH) and !place_meeting(x + insMovilH.int_vx, y, ObjBlock) and !scrTileMeeting(x + insMovilH.int_vx, y, "Collision")){
+if(instance_place(x, y + 1, obj_plat_movil_horizontal) and !instance_place(x, y, obj_plat_movil_horizontal) and !place_meeting(x + insMovilH.int_vx, y, obj_block) and !scrTileMeeting(x + insMovilH.int_vx, y, "Collision")){
 	x += insMovilH.int_vx
 }
 
@@ -241,6 +244,7 @@ if(!bol_surface) {
 }
 
 
+
 //salto
 if(!bol_surface){
 	if ((bolGround or lose_jump < max_jump_time) and keyJump) {
@@ -251,12 +255,13 @@ if(!bol_surface){
 } else {
 	
 	if(keyJump and keyDown){
-		int_vy = intJumpHeightW - 2
+		int_vy = intJumpHeightW
 		audio_play_sound(snd_splash, 0, false)
 		
 	}
 	
 	else if (keyJump) {
+		jump = true
 		int_vy = -intJumpHeightW
 		audio_play_sound(snd_splash, 0, false)
 	}
@@ -271,13 +276,22 @@ if (keyboard_check_released(ord("Z")) or gamepad_button_check_released(0, gp_fac
 }
 
 // Colicion horizontal
-
 repeat (abs(int_vx)) {		
+	
+	// cuesta arriba	
+	if(place_meeting(x + sign(int_vx), y, obj_block) and !place_meeting(x + sign(int_vx), y-1, obj_block)){
+		y--
+	} 
+	
+	// cuesta abajo
+	if(!place_meeting(x + sign(int_vx), y, obj_block) and !place_meeting(x + sign(int_vx), y+1, obj_block) and place_meeting(x + sign(int_vx), y+2, obj_block)){
+		y++
+	}
 	
 	// Colicion horizontal
 	if(layer_exists("Collision")){
 		
-		if(!scrTileMeeting(x + sign(int_vx), y, "Collision") and !place_meeting(x + sign(int_vx), y, ObjBlock)){
+		if(!scrTileMeeting(x + sign(int_vx), y, "Collision") and !place_meeting(x + sign(int_vx), y, obj_block)){
 			x += sign(int_vx)
 		} else { 
 			int_vx = 0; 
@@ -287,7 +301,7 @@ repeat (abs(int_vx)) {
 		
 	}
 	
-	else if(!place_meeting(x + sign(int_vx), y, ObjBlock)){
+	else if(!place_meeting(x + sign(int_vx), y, obj_block)){
 		x += sign(int_vx)
 	}
 	
@@ -306,26 +320,26 @@ repeat (abs(int_vy)) {
 			break
 	}
 	
-    if (place_meeting(x, y + sign(int_vy) ,ObjBlock)){
+    if (place_meeting(x, y + sign(int_vy) ,obj_block)){
 		int_vy = 0
 		break
-	} else if (place_meeting(x, y + sign(int_vy), ObjPlataform) and !place_meeting(x, y, ObjPlataform) and int_vy >= 0){
-		int_vy = 0
-		break
-	}
-	
-	else if (place_meeting(x, y + sign(int_vy), ObjMovilF) and !place_meeting(x, y, ObjMovilF) and int_vy >= 0){
+	} else if (place_meeting(x, y + sign(int_vy), obj_plataforma) and !place_meeting(x, y, obj_plataforma) and int_vy >= 0){
 		int_vy = 0
 		break
 	}
 	
-	else if (place_meeting(x, y + sign(int_vy), ObjMovilH) and !place_meeting(x, y, ObjMovilH) and int_vy >= 0){
+	else if (place_meeting(x, y + sign(int_vy), obj_plat_cae) and !place_meeting(x, y, obj_plat_cae) and int_vy >= 0){
+		int_vy = 0
+		break
+	}
+	
+	else if (place_meeting(x, y + sign(int_vy), obj_plat_movil_horizontal) and !place_meeting(x, y, obj_plat_movil_horizontal) and int_vy >= 0){
 		int_vy = 0
 		break
 	}  
 	
-	else if (place_meeting(x, y + sign(int_vy) + 1, ObjMovilY) and !place_meeting(x, y, ObjMovilY) and int_vy >= 0){
-		int_vy = instance_place(x, y + sign(int_vy) + 1, ObjMovilY).int_vy
+	else if (place_meeting(x, y + sign(int_vy) + 1, obj_plat_movil_vertical) and !place_meeting(x, y, obj_plat_movil_vertical) and int_vy >= 0){
+		int_vy = instance_place(x, y + sign(int_vy) + 1, obj_plat_movil_vertical).int_vy
 		break
 	}
 	else {
@@ -354,7 +368,17 @@ if(bol_surface){
 	sprite_index = swim2
 	
 } else if !bolGround {	
-	if (isDashing and int_vx == 0) {
+	
+	if no_sprite or die {
+		sprite_index = sp_nothing	
+	}
+	
+	else if scaling and (keyDown or keyUp) {
+		sprite_index = scaling_m
+	} else if (scaling) {
+		sprite_index = scaling_s
+	}
+	else if (isDashing and int_vx == 0) {
 		sprite_index = midair2
 	}
 	else if (isDashing) {
@@ -376,8 +400,13 @@ if(bol_surface){
 }
 // cambio de animacion
 else {
-	if(int_vx != 0) { 
-		if(int_vx <= 3 and int_vx >= -3) sprite_index = walk2
+	
+	if no_sprite or die {
+		sprite_index = sp_nothing	
+	} 
+	
+	else if(int_vx != 0) { 
+		if(int_vx <= 3 and int_vx >= -3) sprite_index = runFast //walk2
 		else sprite_index = runFast
 	}
     else {
@@ -404,6 +433,7 @@ if(!bol_surface){
 		int_vy = -intJumpHeight * 1
 		
 		jump = true
+		audio_play_sound(snd_wall_jump, 1, false)
 	}
 	
 	if(intColRightJump and keyJump and !bolGround and !intColRightNo){
@@ -414,12 +444,11 @@ if(!bol_surface){
 		int_vy = -intJumpHeight * 1
 		
 		jump = true
+		audio_play_sound(snd_wall_jump, 1, false)
 	}
 }
 
-if( y >= room_height + 150){
-	die = true
-}
+
 
 with(plane){
 	x = other.x - (0 * other.image_xscale/2 )
@@ -435,7 +464,7 @@ if(bol_surface){
 	isDashing = false
 }
 
-if(!bolGround and keyA and !isDashing and stamina >= maxStamina/3 and !bol_surface){
+if(!bolGround and keyA and !isDashing and stamina >= maxStamina/3 and !bol_surface and !scaling and !die){
 	isPlaning = true
 }
 
@@ -447,7 +476,7 @@ if (isPlaning) {
 	
 	if (play = 10) {
 		audio_play_sound(snd_wind, 1, false)
-		particula = part_system_create(psFly)
+		var particula = part_system_create(ps_volar)
 		part_system_position(particula, x, y - 22)
 	}
 	if(int_vy >= 0){
@@ -473,24 +502,54 @@ if (isPlaning) {
 	
 }
 
-if(instance_exists(ObjControl)){
+if(instance_exists(obj_control)){
 	if(basuraRecolectada >= 20 and !showMessage){
-		ObjControl.mensaje_ayuda = mensaje
-		ObjControl.mensajeTime = 150
+		obj_control.mensaje_ayuda = mensaje
+		obj_control.mensajeTime = 150
 		showMessage = true
 	}
 }
 
+// muerte
 if(die){
-	x = xcheck
-	y = ycheck
 	
-	int_vx = 0
-	int_vy = 0
-	flashAlpha = 1
-	die = false
+	time_die--
+	x = xDie
+	y = yDie
+	
+	if time_die == 0 {
+		x = xcheck
+		y = ycheck
+		int_vx = 0
+		int_vy = 0
+		flashAlpha = 1
+		time_die = 50
+		die = false
+		no_sprite = false
+	}
+	
+	
 }
 
+if((place_meeting(x,y, obj_enemy) or y >= room_height + 150 ) and !die){ 
+	sprite_index = sp_nothing
+	no_sprite = true
+	die = true
+	xDie = x
+	yDie = y
+	obj_cam.shakeTimer = 30
+	audio_play_sound(snd_hit, 0, false)
+	
+	instance_create_depth(x,y,0, obj_die_effect)
+}
+
+
+
+if scaling and (keyJump or keyA or keyX ) and (!keyUp and !keyDown){
+	scaling = false
+}
+
+// flash del personaje
 if(flashAlpha > 0){
 	
 	flashAlpha -=0.05
@@ -500,12 +559,40 @@ if(flashAlpha > 0){
 }
 
 
-if(place_meeting(x,y, obj_enemy)){ 
-	die = true
+// escaleras
+if(scaling){
+	int_vy = -intGravityNorm
+	
+	if bolGround scaling = false
+	
+	if !place_meeting(x, y, obj_escalera){
+		scaling = false
+	}	
 }
 
 
 
+if(place_meeting(x, y, obj_escalera) and ((keyDown and !bolGround) or keyUp)){
+		
+	x = obj_escalera.x
+	scaling = true
+	isPlaning = false
+		
+	if keyUp{
+		int_vy -= 3
+		int_vx = 0
+	} else if keyDown{
+		int_vy += 3
+		int_vx = 0
+	} 	
+		
+} 
 
-
-
+// botes
+if(barrel){
+	barrel_coldown--
+	if barrel_coldown == 0{
+		barrel = false
+		barrel_coldown = 10
+	}
+}

@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"sp_rampa",
   "bboxMode":0,
-  "bbox_bottom":31,
+  "bbox_bottom":15,
   "bbox_left":0,
-  "bbox_right":31,
+  "bbox_right":15,
   "bbox_top":0,
   "collisionKind":0,
   "collisionTolerance":0,
@@ -16,7 +16,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":32,
+  "height":16,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"38a5e9b9-e8a3-4c6f-88bd-29558585f781","blendMode":0,"displayName":"default","isLocked":false,"name":"38a5e9b9-e8a3-4c6f-88bd-29558585f781","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":32,
+  "width":16,
 }

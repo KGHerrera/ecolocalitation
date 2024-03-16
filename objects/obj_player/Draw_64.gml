@@ -26,7 +26,7 @@ draw_text(85, 58, "P: " + string(obj_player.puntaje));
 
 draw_set_color(c_white);
 
-//draw_text(100,100, "LOSE: " + string(obj_player.lose_jump))
+
 
 
 draw_text(215, 58, "R: " + string(obj_player.basuraRecolectada));
@@ -72,6 +72,8 @@ draw_text(display_get_gui_width() / 2, 90 , string(obj_player.timeElapsed))
 
 // Restaurar el alineado por defecto
 draw_set_halign(currentAlign);
+
+//draw_text(100,100, "LOSE: " + string(obj_player.int_vy))
 
 
 

@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spPluma",
-    "path":"sprites/spPluma/spPluma.yy",
+    "name":"sp_pluma_azul",
+    "path":"sprites/sp_pluma_azul/sp_pluma_azul.yy",
   },
   "spriteMaskId":null,
   "visible":true,
