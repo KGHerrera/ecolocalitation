@@ -54,9 +54,10 @@ if(!freeze and instance_exists(following)){
 if(!end_){
 	with(obj_player){
 		
-		if(other.following == obj_bote){
-			zoom = 1.08
-		} 
+		if(obj_player.scaling){
+			other.end_value = 0.6
+			other.setZoom = true
+		}
 		
 		else if (obj_player.int_vxMax > 6) {
 			other.end_value = 0.8
@@ -66,13 +67,14 @@ if(!end_){
 		else if(distance_to_object(obj_bote) < 100 
 			or distance_to_object(obj_carrito) < 100){
 			other.setZoom = true
-			other.end_value = 1.15
+			other.end_value = .8
 		}
 		
 		else if(distance_to_object(obj_estrella_final) < 200){
-			other.end_value = 0.9
+			other.end_value = 0.8
 			other.setZoom = true
 		}
+		
 		
 		else {
 			other.end_value = 1.15

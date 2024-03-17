@@ -8,7 +8,7 @@ freeze = false;
 
 
 // cosas del zoom
-zoom = 1
+zoom = 0.9
 start_value = zoom
 end_value = 1.15
 increment = 0.01

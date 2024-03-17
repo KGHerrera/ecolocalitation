@@ -540,7 +540,11 @@ if((place_meeting(x,y, obj_enemy) or y >= room_height + 150 ) and !die){
 	obj_cam.shakeTimer = 30
 	audio_play_sound(snd_hit, 0, false)
 	
-	instance_create_depth(x,y,0, obj_die_effect)
+	with(instance_create_depth(x, y - 10 ,0, obj_die_effect)) 	{
+		image_xscale = .75
+		image_yscale = .75
+		
+	}
 }
 
 
