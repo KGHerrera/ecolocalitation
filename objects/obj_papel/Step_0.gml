@@ -21,7 +21,7 @@ if(instance_exists(obj_control)){
 	}
 }
 
-if (distance_to_object(obj_player) < 20 and !startFollow and obj_player.papel < 10 and !end_) {
+if (distance_to_object(obj_player) < 20 and !startFollow and obj_player.papel < 10 and !end_ and !obj_player.die) {
     startFollow = true
 	with(obj_player){
 		sound += 0.2
@@ -29,6 +29,8 @@ if (distance_to_object(obj_player) < 20 and !startFollow and obj_player.papel < 
 		if(other.tipo == "organ") obj_player.organicas += 1
 		else if(other.tipo == "lata") obj_player.latas += 1
 		else if(other.tipo == "papel") obj_player.papeles += 1
+		
+		
 		
 		papel += 1
 		if(sound = 2.0){
@@ -74,5 +76,18 @@ if (startFollow){
 		y += (yTo - y) / 15 + 0.4;
 	}
 	
+	if(obj_player.die and !followBote){
+		startFollow = false
+		x = x_init
+		y = y_init	
+		obj_player.papel = 0
+	}
+	
+}
+
+if obj_player.scaling and follow == obj_player and startFollow {
+	image_alpha = scrApproach(image_alpha, 0.1, 0.1)
+} else {
+	image_alpha = scrApproach(image_alpha, 1, 0.1)
 }
 

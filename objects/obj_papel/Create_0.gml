@@ -20,4 +20,7 @@ sumaPuntos = false;
 
 end_ = false
 
+x_init = x
+y_init = y
+
 mensaje = "No puedes llevar mas de 10 objetos"

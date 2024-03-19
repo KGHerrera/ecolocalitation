@@ -1,3 +1,11 @@
+var _alpha = 1
+
+if obj_player.scaling {
+	_alpha = 0.1
+} else {
+	_alpha = 1
+}
+
 var x_init = 30; // posición inicial en X
 var y_init = 20; // posición inicial en Y
 
@@ -37,8 +45,8 @@ draw_set_color(c_white)
 
 
 
-// x ,y ,value, max, colour, radius, transparency, width
-scrMagicBar(display_get_gui_width() / 2, 50, 100, 100, c_black, 35, 1, 20)
+// x ,y ,value, max, colour, radius, transparency, width, alpha
+scrMagicBar(display_get_gui_width() / 2, 50, 100, 100, c_black, 35, 1, 20, _alpha)
 
 
 // Stamina
@@ -54,7 +62,7 @@ if(stamina <= maxStamina/3){
 	colorBar = make_color_rgb(255, 13, 122)
 }
 
-scrMagicBar(display_get_gui_width() / 2, 50, obj_player.stamina, obj_player.maxStamina, colorBar, 30, 1, 10)
+scrMagicBar(display_get_gui_width() / 2, 50, obj_player.stamina, obj_player.maxStamina, colorBar, 30, 1, 10, _alpha)
 
 draw_set_color(c_white) 
 

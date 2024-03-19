@@ -1,14 +1,15 @@
 keyA	  =   keyboard_check_pressed(ord("C")) or gamepad_button_check_pressed(0, gp_shoulderr)
-
+keyRight  = keyboard_check(ord("L")) or gamepad_axis_value(0, gp_axislh) or keyboard_check(vk_right) or gamepad_button_check(0, gp_padr)	
+keyLeft   = keyboard_check(ord("J")) or -gamepad_axis_value(0, gp_axislh) or keyboard_check(vk_left) or gamepad_button_check(0, gp_padl)
 
 time+= 0.1
 
-if(distance_x > 0){
-	x = xstart + scrSineMoveX(distance_x, speed_, time);
+if(distance_x != 0){
+	x = xstart + distance_x/2 + scrSineMoveX(distance_x, speed_, time);
 }
 
-if (distance_y > 0){
-	y = ystart + scrSineMoveX(distance_y, speed_, time);
+if (distance_y != 0){
+	y = ystart - distance_y/2 + scrSineMoveX(distance_y, speed_, time);
 }
 
 
@@ -34,12 +35,12 @@ if place_meeting(x,y, obj_player) and !obj_player.barrel{
 	
 	other.see = 1
 	
-	if !other.keyA{
-		if (keyRight) {
-		other.image_angle -= 5; // Girar hacia la izquierda
-	} else if (keyLeft) {
-		other.image_angle += 5; // Girar hacia la derecha
-	}
+	if !other.keyA {
+		if (other.keyRight) {
+			other.image_angle -= 5; // Girar hacia la izquierda
+		} else if (other.keyLeft) {
+			other.image_angle += 5; // Girar hacia la derecha
+		}
 	}
 	
 	
@@ -57,6 +58,7 @@ if place_meeting(x,y, obj_player) and !obj_player.barrel{
 	
 	if keyJump {
 	    scaling = false
+		jump = false
     
 	    // Calculamos las componentes x e y de la velocidad basadas en el ángulo
 	    int_vxMax = 12
@@ -84,4 +86,13 @@ if burst{
 
 with (select){
 	image_alpha = other.see
+}
+
+if(radius != 0){
+	// Incrementar el ángulo de rotación
+	angle += rotate_speed;
+
+	// Calcular las coordenadas x e y basadas en el ángulo y el radio
+	x = xstart + lengthdir_x(radius, angle);
+	y = ystart + lengthdir_y(radius, angle);
 }

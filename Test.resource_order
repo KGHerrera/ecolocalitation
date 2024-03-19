@@ -34,8 +34,6 @@
     {"name":"obj_block","order":5,"path":"objects/obj_block/obj_block.yy",},
     {"name":"obj_bote_azul","order":1,"path":"objects/obj_bote_azul/obj_bote_azul.yy",},
     {"name":"obj_bote_derecha_mov","order":26,"path":"objects/obj_bote_derecha_mov/obj_bote_derecha_mov.yy",},
-    {"name":"obj_bote_derecha","order":24,"path":"objects/obj_bote_derecha/obj_bote_derecha.yy",},
-    {"name":"obj_bote_giratorio","order":25,"path":"objects/obj_bote_giratorio/obj_bote_giratorio.yy",},
     {"name":"obj_bote_giratorio_mov","order":28,"path":"objects/obj_bote_giratorio_mov/obj_bote_giratorio_mov.yy",},
     {"name":"obj_bote_verde","order":2,"path":"objects/obj_bote_verde/obj_bote_verde.yy",},
     {"name":"obj_bote","order":17,"path":"objects/obj_bote/obj_bote.yy",},

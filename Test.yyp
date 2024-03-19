@@ -72,8 +72,6 @@
     {"id":{"name":"obj_bote_amarillo","path":"objects/obj_bote_amarillo/obj_bote_amarillo.yy",},},
     {"id":{"name":"obj_bote_azul","path":"objects/obj_bote_azul/obj_bote_azul.yy",},},
     {"id":{"name":"obj_bote_derecha_mov","path":"objects/obj_bote_derecha_mov/obj_bote_derecha_mov.yy",},},
-    {"id":{"name":"obj_bote_derecha","path":"objects/obj_bote_derecha/obj_bote_derecha.yy",},},
-    {"id":{"name":"obj_bote_giratorio","path":"objects/obj_bote_giratorio/obj_bote_giratorio.yy",},},
     {"id":{"name":"obj_bote_giratorio_mov","path":"objects/obj_bote_giratorio_mov/obj_bote_giratorio_mov.yy",},},
     {"id":{"name":"obj_bote_verde","path":"objects/obj_bote_verde/obj_bote_verde.yy",},},
     {"id":{"name":"obj_bote","path":"objects/obj_bote/obj_bote.yy",},},

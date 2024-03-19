@@ -4,11 +4,18 @@
 if(!talking){
 	if (!(coldown_right > 0)) {
 		keyRight  = keyboard_check(ord("L")) or gamepad_axis_value(0, gp_axislh) or keyboard_check(vk_right) or gamepad_button_check(0, gp_padr)	
-	} else coldown_right--
+	} else {
+		coldown_right--
+		keyRight = 0
+	}
+		
 	if (!(coldown_left > 0)) {
 		keyLeft   = keyboard_check(ord("J")) or -gamepad_axis_value(0, gp_axislh) or keyboard_check(vk_left) or gamepad_button_check(0, gp_padl)
 		
-	} else coldown_left--
+	} else {
+		coldown_left--
+		keyLeft = 0
+	}
 	
 	keyUp     = keyboard_check(ord("I")) or -gamepad_axis_value(0, gp_axislv) or keyboard_check(vk_up) or gamepad_button_check(0, gp_padu)
 	keyDown   = keyboard_check(ord("K")) or gamepad_axis_value(0, gp_axislv) or keyboard_check(vk_down) or gamepad_button_check(0, gp_padd)
@@ -517,6 +524,10 @@ if(die){
 	x = xDie
 	y = yDie
 	
+	int_vx = 0
+	int_vy = 0
+	
+	
 	if time_die == 0 {
 		x = xcheck
 		y = ycheck
@@ -543,8 +554,9 @@ if((place_meeting(x,y, obj_enemy) or y >= room_height + 150 ) and !die){
 	with(instance_create_depth(x, y - 10 ,0, obj_die_effect)) 	{
 		image_xscale = .75
 		image_yscale = .75
-		
 	}
+	
+	puntaje -= 2800
 }
 
 

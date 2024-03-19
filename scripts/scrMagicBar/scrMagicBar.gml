@@ -1,6 +1,6 @@
 // Los recursos de Script han cambiado para la v2.3.0 Consulta
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 para más información
-function scrMagicBar(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7){
+function scrMagicBar(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8){
 	
 	/// draw_circular_bar(x ,y ,value, max, colour, radius, transparency, width)
 
@@ -36,7 +36,7 @@ if (argument2 > 0) { // no point even running if there is nothing to display (al
         
         draw_primitive_end();
         
-        draw_set_alpha(1);
+        draw_set_alpha(argument8);
         
         gpu_set_blendmode(bm_subtract)
         draw_set_colour(c_black)

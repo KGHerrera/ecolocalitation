@@ -1,10 +1,11 @@
 time += 0.1
+image_angle += 3
 
-if(distance_x > 0){
+if(distance_x =! 0){
 	x = xstart + scrSineMoveX(distance_x, speed_, time);
 }
 
-if (distance_y > 0){
+if (distance_y != 0){
 	y = ystart + scrSineMoveX(distance_y, speed_, time);
 }
 
@@ -28,7 +29,7 @@ if place_meeting(x,y, obj_player) and !obj_player.barrel{
 		y = other.y + 5
 	
 		other.see = 1
-		other.image_angle += 5
+		
 	
 	
 	
@@ -74,4 +75,13 @@ if burst{
 
 with (select){
 	image_alpha = other.see
+}
+
+if radius != 0{
+	// Incrementar el ángulo de rotación
+	angle += rotate_speed;
+
+	// Calcular las coordenadas x e y basadas en el ángulo y el radio
+	x = xstart + lengthdir_x(radius, angle);
+	y = ystart + lengthdir_y(radius, angle);
 }
