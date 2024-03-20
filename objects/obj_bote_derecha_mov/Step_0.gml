@@ -56,31 +56,35 @@ if place_meeting(x,y, obj_player) and !obj_player.barrel{
 	
 	
 	
-	if keyJump {
-	    scaling = false
-		jump = false
+		if keyJump {
+		    scaling = false
+			jump = false
     
-	    // Calculamos las componentes x e y de la velocidad basadas en el ángulo
-	    int_vxMax = 12
-	    int_vx = 12 * cos(degtorad(other.image_angle))
-	    int_vy = -15 * sin(degtorad(other.image_angle))
+		    // Calculamos las componentes x e y de la velocidad basadas en el ángulo
+		    int_vxMax = 12
+		    int_vx = 12 * cos(degtorad(other.image_angle))
+		    int_vy = -15 * sin(degtorad(other.image_angle))
     
-	    barrel = true
-	    no_sprite = false
-	    audio_play_sound(snd_shot, 0, false)
-	    obj_cam.shakeTimer = 30
-	    reload_sound = 10
+		    barrel = true
+		    no_sprite = false
+		    audio_play_sound(snd_shot, 0, false)
+		    obj_cam.shakeTimer = 30
+		    reload_sound = 10
 		
-		other.burst = true
-		other.see = 0
-	}
+			other.burst = true
+			other.see = 0
+		}
 
 		
 	}
 }
 
 if burst{
-	instance_create_depth(x , y, -10, obj_burst)
+	with(instance_create_depth(x , y, -10, obj_burst_2)){
+		image_angle = other.image_angle - 90
+		x = other.x
+		y = other.y
+	}
 	burst = false
 }
 

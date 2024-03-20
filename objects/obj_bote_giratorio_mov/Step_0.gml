@@ -1,5 +1,37 @@
 time += 0.1
-image_angle += 3
+
+
+if (giro_en_cruz){
+	
+	if wait == 0{
+		angle_rotate += 2
+	}
+	
+	
+	if angle_rotate mod 90 == 0{
+		image_angle = scrApproach(image_angle, angle_rotate, 10)
+		
+		wait +=2
+		if (wait = 60) wait = 0
+	}
+	
+} else if (giro_en_diagonal){
+	
+	if wait == 0{
+		angle_rotate += 2
+	}
+	
+	
+	if angle_rotate mod 90 == 0{
+		image_angle = scrApproach(image_angle, angle_rotate - 45, 10)
+		
+		wait +=2
+		if (wait = 60) wait = 0
+	}
+	
+} else {
+	image_angle += 3
+}
 
 if(distance_x =! 0){
 	x = xstart + scrSineMoveX(distance_x, speed_, time);
@@ -69,7 +101,9 @@ if place_meeting(x,y, obj_player) and !obj_player.barrel{
 }
 
 if burst{
-	instance_create_depth(x , y, -10, obj_burst)
+	with(instance_create_depth(x , y, -10, obj_burst_2)){
+		image_angle = other.image_angle - 90
+	}
 	burst = false
 }
 

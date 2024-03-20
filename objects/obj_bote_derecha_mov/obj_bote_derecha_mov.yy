@@ -37,8 +37,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"bote132",
-    "path":"sprites/bote132/bote132.yy",
+    "name":"spr_bote_mov",
+    "path":"sprites/spr_bote_mov/spr_bote_mov.yy",
   },
   "spriteMaskId":null,
   "visible":true,

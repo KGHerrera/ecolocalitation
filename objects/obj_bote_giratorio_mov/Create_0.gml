@@ -8,6 +8,8 @@ with (select){
 	image_alpha = other.see
 }
 
-image_angle = 90
-
 time = 0
+
+angle_rotate = 0
+
+wait = 0
