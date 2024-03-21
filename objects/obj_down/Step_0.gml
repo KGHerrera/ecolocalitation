@@ -1,0 +1,1 @@
+key_left = virtual_key_add(x - 100 ,y, sprite_width + 200, sprite_height, ord("K"))

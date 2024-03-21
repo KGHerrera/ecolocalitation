@@ -3,19 +3,27 @@
 
 if(!talking){
 	if (!(coldown_right > 0)) {
-		keyRight  = keyboard_check(ord("L")) or gamepad_axis_value(0, gp_axislh) or keyboard_check(vk_right) or gamepad_button_check(0, gp_padr)	
+		keyRight  = keyboard_check(ord("L")) or gamepad_axis_value(0, gp_axislh) or keyboard_check(vk_right) or gamepad_button_check(0, gp_padr)
 	} else {
 		coldown_right--
 		keyRight = 0
 	}
 		
 	if (!(coldown_left > 0)) {
-		keyLeft   = keyboard_check(ord("J")) or -gamepad_axis_value(0, gp_axislh) or keyboard_check(vk_left) or gamepad_button_check(0, gp_padl)
+		
+		if (instance_exists(obj_left)) {
+			keyLeft   = keyboard_check(ord("J")) or -gamepad_axis_value(0, gp_axislh) or keyboard_check(vk_left) or gamepad_button_check(0, gp_padl)
+		} else {
+			keyLeft   = keyboard_check(ord("J")) or -gamepad_axis_value(0, gp_axislh) or keyboard_check(vk_left) or gamepad_button_check(0, gp_padl) 
+		}
+		
 		
 	} else {
 		coldown_left--
 		keyLeft = 0
 	}
+	
+	
 	
 	keyUp     = keyboard_check(ord("I")) or -gamepad_axis_value(0, gp_axislv) or keyboard_check(vk_up) or gamepad_button_check(0, gp_padu)
 	keyDown   = keyboard_check(ord("K")) or gamepad_axis_value(0, gp_axislv) or keyboard_check(vk_down) or gamepad_button_check(0, gp_padd)

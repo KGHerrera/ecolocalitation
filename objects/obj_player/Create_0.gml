@@ -109,3 +109,39 @@ time_die = 50
 xDie = x
 yDie = y
 
+
+
+// controles del jugador
+if (os_type == os_android) {
+	with(instance_create_depth(0, 0, -10, obj_left)){
+		image_alpha = 0.3
+	}
+	with(instance_create_depth(0, 0, -10, obj_up)){
+		image_alpha = 0.3
+	}
+	with(instance_create_depth(0, 0, -10, obj_right)){
+		image_alpha = 0.3
+	}
+	with(instance_create_depth(0, 0, -10, obj_down)){
+		image_alpha = 0.3
+	}
+	with(instance_create_depth(0, 0, -10, obj_x)){
+		image_alpha = 0.3
+	}
+	with(instance_create_depth(0, 0, -10, obj_c)){
+		image_alpha = 0.3
+	}
+	with(instance_create_depth(0, 0, -10, obj_z)){
+		image_alpha = 0.3
+	}
+	with(instance_create_depth(0, 0, -10, obj_cambiar)){
+		image_alpha = 0.3
+	}
+	with(instance_create_depth(0, 0, -10, obj_cambiar)){
+		image_alpha = 0
+	}
+	with(instance_create_depth(0, 0, -10, obj_restart)){
+		image_alpha = 0
+	}
+
+}
