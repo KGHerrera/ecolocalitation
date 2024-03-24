@@ -36,7 +36,7 @@ if (distance_to_object(obj_player) < 40 and obj_player.bolGround and !end_) {
 					obj_player.basuraRecolectada++
 				}	
 				
-				with(instance_create_layer(x, y - 10, "Instances", obj_text)){
+				with(instance_create_layer(x, y - 10, layer, obj_text)){
 					sprite_index = sp_1008
 				}
 			} 

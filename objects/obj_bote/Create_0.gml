@@ -1,5 +1,5 @@
 
-inst = instance_create_layer(x, y - 16 * 4, "Instances", obj_boton)
+inst = instance_create_layer(x, y - 16 * 4, layer, obj_boton)
 
 with(inst){
 	x = other.x;

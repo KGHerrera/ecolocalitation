@@ -5,18 +5,20 @@ draw_set_color(c_white)
 //draw_text(30, 100, "FPS: " + string(fps))
 
 if(animation_time > 0){
-	targetHeight = display_get_gui_height() / 6.5
-	targetX = display_get_gui_width() / 1.04
+	targetHeight = 120
+	targetX = display_get_gui_width() - 50
 	animation_time--
 } else {
-	targetHeight = 0
+	
 	targetX = -display_get_gui_width()
 	
 	if(instance_exists(obj_player)){
 		if(obj_player.isPlaning or obj_player.talking or mensajeTime > 0){
-			targetHeight = display_get_gui_height() / 12
-		}	
-	}
+			targetHeight = barras_tam
+		}	 else {
+			targetHeight = 0
+		}
+	} 
 	
 }
  // Altura de las barras negras objetivo
@@ -47,15 +49,15 @@ draw_set_font(Pixel2)
 draw_text(currentX, display_get_height() - 50, second_name)
 
 draw_set_font(Pixel)
-draw_text(display_get_gui_width() -30 , currentMensaje, mensaje_ayuda)
+draw_text(display_get_gui_width() - 30 , currentMensaje, mensaje_ayuda)
 
 currentMensaje = lerp(currentMensaje, mensajeTarget, 0.1)
 
 if(mensajeTime > 0){
-	mensajeTarget = 20
+	mensajeTarget = 15
 	mensajeTime--
 } else {
-	mensajeTarget = -50
+	mensajeTarget = -100
 }
 
 if(keyboard_check(ord("T"))){

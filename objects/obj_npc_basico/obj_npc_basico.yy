@@ -4,6 +4,7 @@
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_npc_basico",
@@ -27,11 +28,10 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"","%Name":"dialogList","filters":[],"listItems":[
+    {"$GMObjectProperty":"","%Name":"text_index","filters":[],"listItems":[
         "\"Hola bienvenido, ultimamente la gente a descuidado el mundo un poco, podrias ayudarnos a limpiarlo?, recuerda que debes separar la basura :)\"",
         "\"espantaste mi pajaro perro >:v\"",
-      ],"multiselect":true,"name":"dialogList","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"espantaste mi pajaro perro >:v\"","varType":6,},
-    {"$GMObjectProperty":"","%Name":"pfp","filters":[],"listItems":[],"multiselect":false,"name":"pfp","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"z1","varType":5,},
+      ],"multiselect":true,"name":"text_index","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

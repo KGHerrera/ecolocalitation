@@ -171,7 +171,7 @@ if (isDashing) {
 	coldown_left = 0
 
 	if(dashDuration % 3 == 0){
-		with(instance_create_layer(x, y, "Instances", obj_trail)) {
+		with(instance_create_depth(x, y, depth + 1, obj_trail)) {
 			
 			sprite_index = other.sprite_index
 			image_blend = c_white

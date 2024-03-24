@@ -3,5 +3,5 @@
 
 pressCont = 0
 createInstances = false
-boton = instance_create_depth(x, y - 16 * 6, depth-1, obj_boton)
+boton = instance_create_layer(x, y - 16 * 6, layer, obj_boton)
 boton.visible = false

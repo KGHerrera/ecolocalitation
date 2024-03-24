@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spBtnX",
-    "path":"sprites/spBtnX/spBtnX.yy",
+    "name":"spr_button_2",
+    "path":"sprites/spr_button_2/spr_button_2.yy",
   },
   "spriteMaskId":null,
   "visible":true,

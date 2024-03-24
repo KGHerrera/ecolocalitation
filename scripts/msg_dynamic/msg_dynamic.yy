@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"msg_dynamic",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"msg_dynamic",
+  "parent":{
+    "name":"dynamictext",
+    "path":"folders/Scripts/dynamictext.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

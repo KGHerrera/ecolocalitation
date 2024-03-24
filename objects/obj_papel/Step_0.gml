@@ -11,6 +11,9 @@ if distance_to_object(obj_player) < 500 {
 
 if(instance_exists(obj_control)){
 	end_ = obj_control.end_
+	
+	
+	
 	if(end_){
 			
 		image_alpha-= 0.05
@@ -18,6 +21,12 @@ if(instance_exists(obj_control)){
 		if(image_alpha == 0){
 			instance_destroy()
 		}
+	} else if obj_player.scaling and follow == obj_player and startFollow {
+		image_alpha = scrApproach(image_alpha, 0.1, 0.1)
+		image_blend = make_color_rgb(255 * image_alpha, 255 * image_alpha, 255 * image_alpha)
+	} else {
+		image_alpha = scrApproach(image_alpha, 1, 0.1)
+		image_blend = make_color_rgb(255 * image_alpha, 255 * image_alpha, 255 * image_alpha)
 	}
 }
 
@@ -38,7 +47,7 @@ if (distance_to_object(obj_player) < 20 and !startFollow and obj_player.papel < 
 			audio_play_sound(snd_combo, 10, false, .8, 0, sound)
 			puntaje += 1000
 			
-			with(instance_create_layer(x, y - 50, "Instances", obj_text)){
+			with(instance_create_layer(x, y - 50, layer, obj_text)){
 				sprite_index = sp_10008
 			}
 			
@@ -46,7 +55,7 @@ if (distance_to_object(obj_player) < 20 and !startFollow and obj_player.papel < 
 		} else {
 			audio_play_sound(snd_combo, 10, false, .8, 0, sound)
 			puntaje += 20
-			with(instance_create_layer(x, y - 50, "Instances", obj_text)){
+			with(instance_create_layer(x, y - 50, layer, obj_text)){
 				
 			}
 		}
@@ -85,9 +94,5 @@ if (startFollow){
 	
 }
 
-if obj_player.scaling and follow == obj_player and startFollow {
-	image_alpha = scrApproach(image_alpha, 0.1, 0.1)
-} else {
-	image_alpha = scrApproach(image_alpha, 1, 0.1)
-}
+
 

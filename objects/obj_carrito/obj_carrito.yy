@@ -1,10 +1,7 @@
 {
   "$GMObject":"",
   "%Name":"obj_carrito",
-  "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "eventList":[],
   "managed":true,
   "name":"obj_carrito",
   "overriddenProperties":[],
@@ -12,7 +9,10 @@
     "name":"NPC",
     "path":"folders/Objects/NPC.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_npc_basico",
+    "path":"objects/obj_npc_basico/obj_npc_basico.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -26,13 +26,7 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[
-    {"$GMObjectProperty":"","%Name":"dialogList","filters":[],"listItems":[
-        "\"ja tengo un bote de basura para botellas, pero vendo elotes que raro, por cierto ya intentaste hacer el dash en diferentes direcciones :v\"",
-        "\"antes aqui todo era blanco, rosa y un poco de azul sal de aqui esponja\"",
-      ],"multiselect":true,"name":"dialogList","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"antes aqui todo era blanco, rosa y un poco de azul sal de aqui esponja\"","varType":6,},
-    {"$GMObjectProperty":"","%Name":"pfp","filters":[],"listItems":[],"multiselect":false,"name":"pfp","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"z2","varType":5,},
-  ],
+  "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,

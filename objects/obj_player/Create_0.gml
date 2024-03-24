@@ -65,10 +65,13 @@ isPlaning = false
 talking = false
 dieTime = 20
 
-plane = instance_create_depth(x, y, depth - 1, obj_plane)
+layer_collision = false
+
+plane = instance_create_layer(x, y, layer, obj_plane)
 play = 10
 
 with(plane){
+	depth = depth - 1
 	visible = false
 	image_xscale = 2
 	image_yscale = 2
@@ -145,3 +148,5 @@ if (os_type == os_android) {
 	}
 
 }
+
+instance_create_depth(0, 0, -10, obj_pause);
