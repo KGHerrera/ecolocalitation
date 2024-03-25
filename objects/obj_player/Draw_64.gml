@@ -43,47 +43,7 @@ draw_set_font(Pixel2)
 
 draw_set_color(c_white)
 
-
-
-// x ,y ,value, max, colour, radius, transparency, width, alpha
-scrMagicBar(display_get_gui_width() / 2, 100, 100, 100, c_black, 35, 1, 20, _alpha)
-
-
-// Stamina
-var colorBar = make_color_rgb(74, 255, 61)
-
-if(obj_player.canDash){
-	colorBar = make_color_rgb(74, 255, 61)
-} else{
-	colorBar = make_color_rgb(20, 208, 255)
-}
-
-if(stamina <= maxStamina/3){
-	colorBar = make_color_rgb(255, 13, 122)
-}
-
-scrMagicBar(display_get_gui_width() / 2, 100, obj_player.stamina, obj_player.maxStamina, colorBar, 30, 1, 10, _alpha)
-
-draw_set_color(c_white) 
-
-// relog
-// Guardar el alineado actual
-var currentAlign = draw_get_halign();
-
-// Establecer el alineado horizontal al centro
-draw_set_halign(fa_center);
-
-// Dibujar el texto centrado horizontalmente y alineado al centro
-//draw_text(100, 100, string(obj_player.int_vx))
-
-draw_text(display_get_gui_width() / 2, 20 , string(obj_player.timeElapsed))
-
-// Restaurar el alineado por defecto
-draw_set_halign(currentAlign);
-
-//draw_text(100,100, "LOSE: " + string(obj_player.int_vy))
-
-
+// indicador de basura
 var nearest_bote = noone;
 var nearest_distance = 100000;  // A large starting distance
 
@@ -91,9 +51,6 @@ var nearest_bote = -1;
 var nearest_distance = 100000;  // A large starting distance
 
 // Find the nearest instance of obj_bote
-
-
-
 if obj_player.papel > 0 {
 
 // Determinar el tipo de residuo con el valor más grande
@@ -151,4 +108,47 @@ if (nearest_bote != -1)
     // Draw the arrow sprite rotated towards the nearest instance
     draw_sprite_ext(spr_arrow, 0, display_get_gui_width() / 2, 100, 2.2, 2.2, arrow_angle, c_white, 1);
 }
+
+
+
+// x ,y ,value, max, colour, radius, transparency, width, alpha
+scrMagicBar(display_get_gui_width() / 2, 100, 100, 100, c_black, 35, 1, 20, _alpha)
+
+
+// Stamina
+var colorBar = make_color_rgb(74, 255, 61)
+
+if(obj_player.canDash){
+	colorBar = make_color_rgb(74, 255, 61)
+} else{
+	colorBar = make_color_rgb(20, 208, 255)
+}
+
+if(stamina <= maxStamina/3){
+	colorBar = make_color_rgb(255, 13, 122)
+}
+
+scrMagicBar(display_get_gui_width() / 2, 100, obj_player.stamina, obj_player.maxStamina, colorBar, 30, 1, 10, _alpha)
+
+draw_set_color(c_white) 
+
+// relog
+// Guardar el alineado actual
+var currentAlign = draw_get_halign();
+
+// Establecer el alineado horizontal al centro
+draw_set_halign(fa_center);
+
+// Dibujar el texto centrado horizontalmente y alineado al centro
+//draw_text(100, 100, string(obj_player.int_vx))
+
+draw_text(display_get_gui_width() / 2, 20 , string(obj_player.timeElapsed))
+
+// Restaurar el alineado por defecto
+draw_set_halign(currentAlign);
+
+//draw_text(100,100, "LOSE: " + string(obj_player.int_vy))
+
+
+
 

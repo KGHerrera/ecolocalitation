@@ -72,14 +72,14 @@ if(!end_){
 		}
 		
 		else if (obj_player.int_vxMax > 6) {
-			other.end_value = 0.8
+			other.end_value = 0.9
 			other.setZoom = true
 		}
 		
 		else if(distance_to_object(obj_bote) < 100 
 			or distance_to_object(obj_carrito) < 100){
 			other.setZoom = true
-			other.end_value = other.start_value
+			other.end_value = 0.9
 		}
 		
 		else if(distance_to_object(obj_estrella_final) < 200){

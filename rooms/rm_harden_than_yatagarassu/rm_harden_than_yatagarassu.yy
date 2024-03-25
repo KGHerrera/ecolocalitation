@@ -416,7 +416,12 @@
         {"$GMRParticleSystem":"","%Name":"particle_106F825D","colour":4294967295,"frozen":false,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"particle_106F825D","particleSystemId":{"name":"ps_aire","path":"particles/ps_aire/ps_aire.yy",},"resourceType":"GMRParticleSystem","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":1952.0,"y":832.0,},
         {"$GMRParticleSystem":"","%Name":"particle_625EC303","colour":4294967295,"frozen":false,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"particle_625EC303","particleSystemId":{"name":"ps_aire","path":"particles/ps_aire/ps_aire.yy",},"resourceType":"GMRParticleSystem","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":4480.0,"y":640.0,},
       ],"depth":600,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Assets_1","properties":[],"resourceType":"GMRAssetLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
-    {"$GMRTileLayer":"","%Name":"Collision","depth":700,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Collision","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":38,"SerialiseWidth":2813,"TileCompressedData":[
+    {"$GMRTileLayer":"","%Name":"Collision","depth":700,"effectEnabled":true,"effectType":"_filter_hard_drop_shadow","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Collision","properties":[
+        {"name":"g_DisplacementX","type":0,"value":"3",},
+        {"name":"g_DisplacementY","type":0,"value":"3",},
+        {"name":"g_Opacity","type":0,"value":"0.5",},
+        {"name":"g_Colour","type":1,"value":"#FF000000",},
+      ],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":38,"SerialiseWidth":2813,"TileCompressedData":[
           -98598,-2147483648,4,53,54,54,55,-2809,-2147483648,7,79,80,80,109,54,54,55,-2806,-2147483648,1,79,-5,
           80,1,81,-2663,-2147483648,
         ],"TileDataFormat":1,},"tilesetId":{"name":"TileNightWave","path":"tilesets/TileNightWave/TileNightWave.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},

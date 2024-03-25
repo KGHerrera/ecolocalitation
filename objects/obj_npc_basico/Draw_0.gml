@@ -12,10 +12,6 @@ if instance_exists(obj_player){
 		talking = true
 	} 
 	
-	if distance_to_object(obj_player) > 99 {
-		msg_stop()
-	}
-	
 	show_instance = !obj_player.talking and distance_to_object(obj_player) < 100 and obj_player.bolGround
 		
 	if(talking) { 

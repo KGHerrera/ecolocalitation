@@ -545,6 +545,9 @@ if(die){
 		time_die = 50
 		die = false
 		no_sprite = false
+		papeles = 0
+		latas = 0
+		organicas = 0
 	}
 	
 	

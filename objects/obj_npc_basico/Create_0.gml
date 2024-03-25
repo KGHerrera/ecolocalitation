@@ -10,6 +10,8 @@ lista =  [
 
 ["Holas, Que tal?", "Espantaste mi pajaro, pero no te preocupes", "Ya intentaste saltar dos veses y moviendote?"] 
 
-,["Robe un globo :,(", "El dia de globos gratis Bv", "Intenta planear con el boton c o si traes mando :o", "boton r1 en play y sabe cual en xbox bv"]
+,["Robe un globo :,(", "El dia de globos gratis Bv", "Intenta planear con el boton c o si traes mando :o", "boton r1 en play y sabe cual en xbox bv"],
+
+["Bienvenido al imalaya ok no :v", "Quieres helado?", "na no te creas tiene medicina ;)"]
 
 ]
