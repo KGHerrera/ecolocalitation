@@ -1,9 +1,7 @@
 {
   "$GMObject":"",
   "%Name":"obj_gota",
-  "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "eventList":[],
   "managed":true,
   "name":"obj_gota",
   "overriddenProperties":[],
@@ -11,7 +9,10 @@
     "name":"NPC",
     "path":"folders/Objects/NPC.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_npc_basico",
+    "path":"objects/obj_npc_basico/obj_npc_basico.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

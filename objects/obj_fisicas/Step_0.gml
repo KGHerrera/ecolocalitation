@@ -77,7 +77,3 @@ repeat (abs(int_vy)) {
 	}
 }
 
-if(int_vx != 0){
-	int_vx = scrApproach(int_vx, 0, 0.075);
-}
-

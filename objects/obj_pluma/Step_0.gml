@@ -9,7 +9,7 @@ if(distance_to_object(obj_player) < 5 and obj_player.isPlaning and !coldown){
 		obj_player.int_vxMax = 10
 	}
 	
-	obj_player.int_vy = -5
+	obj_player.int_vy = -6
 	obj_player.int_vx = 10 * obj_player.int_move
 	coldown = true
 	obj_cam.shakeTimer = 30

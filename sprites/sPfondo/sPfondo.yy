@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":6,
   "parent":{
-    "name":"Backgrounds",
-    "path":"folders/Sprites/Backgrounds.yy",
+    "name":"cuadra",
+    "path":"folders/Sprites/Backgrounds/cuadra.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

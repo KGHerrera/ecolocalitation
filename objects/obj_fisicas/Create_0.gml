@@ -12,3 +12,4 @@ int_vxMax		=	4
 
 int_vy = 0
 int_vx = 0
+int_move = 0

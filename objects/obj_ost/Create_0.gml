@@ -27,6 +27,10 @@ switch (room) {
     case rm_to_the_top:
         cancion = audio_play_sound(ost_to_the_top, 2, true);
         break;
+		
+	case rm_neon:
+        cancion = audio_play_sound(snd_neon, 2, true);
+        break;
 
     default:
         cancion = audio_play_sound(ost_test, 2, true);

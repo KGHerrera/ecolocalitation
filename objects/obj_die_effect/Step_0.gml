@@ -1,5 +1,5 @@
 cont_destroy++
 
-if cont_destroy == 60 {
+if cont_destroy == 30 {
 	instance_destroy()
 }

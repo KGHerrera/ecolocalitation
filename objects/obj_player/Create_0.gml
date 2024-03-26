@@ -41,7 +41,7 @@ intWaterFric	=   .3
 
 
 // Alarmas
-maxDash			= 15
+maxDash			= 12
 dashDuration	= maxDash
 canDash			= true
 maxRegeneration = 100

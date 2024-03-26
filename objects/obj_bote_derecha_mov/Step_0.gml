@@ -1,4 +1,4 @@
-keyA	  =   keyboard_check_pressed(ord("C")) or gamepad_button_check_pressed(0, gp_shoulderr)
+keyA = keyboard_check(ord("C")) or gamepad_button_check(0, gp_shoulderr)
 keyRight  = keyboard_check(ord("L")) or gamepad_axis_value(0, gp_axislh) or keyboard_check(vk_right) or gamepad_button_check(0, gp_padr)	
 keyLeft   = keyboard_check(ord("J")) or -gamepad_axis_value(0, gp_axislh) or keyboard_check(vk_left) or gamepad_button_check(0, gp_padl)
 
@@ -36,11 +36,22 @@ if place_meeting(x,y, obj_player) and !obj_player.barrel{
 	other.see = 1
 	
 	if !other.keyA {
+		
+		with(other.select){
+			image_blend = c_white
+		}
+		
 		if (other.keyRight) {
 			other.image_angle -= 5; // Girar hacia la izquierda
 		} else if (other.keyLeft) {
 			other.image_angle += 5; // Girar hacia la derecha
 		}
+	} else {
+	
+		with(other.select){
+			image_blend = make_color_rgb(250, 30, 70)
+		}
+		
 	}
 	
 	

@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_die_effect",
-    "path":"sprites/spr_die_effect/spr_die_effect.yy",
+    "name":"spr_die_efx",
+    "path":"sprites/spr_die_efx/spr_die_efx.yy",
   },
   "spriteMaskId":null,
   "visible":true,

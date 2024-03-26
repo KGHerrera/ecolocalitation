@@ -41,7 +41,50 @@ draw_text(215, 58, "R: " + string(obj_player.basuraRecolectada));
 draw_set_font(Pixel2)
 
 
+draw_set_color(c_black)
+draw_circle(display_get_gui_width() / 2, 100, 25, false)
+
 draw_set_color(c_white)
+
+// x ,y ,value, max, colour, radius, transparency, width, alpha
+scrMagicBar(display_get_gui_width() / 2, 100, 100, 100, c_black, 35, 1, 20, _alpha)
+
+
+// Stamina
+var colorBar = make_color_rgb(74, 255, 61)
+
+if(obj_player.canDash){
+	colorBar = make_color_rgb(74, 255, 61)
+} else{
+	colorBar = make_color_rgb(20, 208, 255)
+}
+
+if(stamina <= maxStamina/3){
+	colorBar = make_color_rgb(255, 13, 122)
+}
+
+scrMagicBar(display_get_gui_width() / 2, 100, obj_player.stamina, obj_player.maxStamina, colorBar, 30, 1, 10, _alpha)
+
+draw_set_color(c_white) 
+
+
+
+// relog
+// Guardar el alineado actual
+var currentAlign = draw_get_halign();
+
+// Establecer el alineado horizontal al centro
+draw_set_halign(fa_center);
+
+// Dibujar el texto centrado horizontalmente y alineado al centro
+//draw_text(100, 100, string(obj_player.int_vx))
+
+draw_text(display_get_gui_width() / 2, 20 , string(obj_player.timeElapsed))
+
+// Restaurar el alineado por defecto
+draw_set_halign(currentAlign);
+
+//draw_text(100,100, "LOSE: " + string(obj_player.int_vy))
 
 // indicador de basura
 var nearest_bote = noone;
@@ -66,6 +109,9 @@ if (papeles > latas && papeles > organicas) {
             }
         }
     }
+	
+	draw_sprite_ext(sPapel8, 0, display_get_gui_width() / 2, 100, 1.5, 1.5, 0, c_white, 1)
+	
 } else if (latas > papeles && latas > organicas) {
     // Si el tipo de residuo más grande es "latas", busca un bote de latas
     for (var i = 0; i < instance_number(obj_bote); ++i) {
@@ -78,6 +124,9 @@ if (papeles > latas && papeles > organicas) {
             }
         }
     }
+	
+	draw_sprite_ext(sLata8, 0, display_get_gui_width() / 2, 100, 1.5, 1.5, 0, c_white, 1)
+	
 } else if (organicas > papeles && organicas > latas) {
     // Si el tipo de residuo más grande es "organicas", busca un bote de organicas
     for (var i = 0; i < instance_number(obj_bote); ++i) {
@@ -90,6 +139,8 @@ if (papeles > latas && papeles > organicas) {
             }
         }
     }
+	
+	draw_sprite_ext(spPlatano8, 0, display_get_gui_width() / 2, 100, 1.5, 1.5, 0, c_white, 1)
 }
 
 
@@ -108,46 +159,6 @@ if (nearest_bote != -1)
     // Draw the arrow sprite rotated towards the nearest instance
     draw_sprite_ext(spr_arrow, 0, display_get_gui_width() / 2, 100, 2.2, 2.2, arrow_angle, c_white, 1);
 }
-
-
-
-// x ,y ,value, max, colour, radius, transparency, width, alpha
-scrMagicBar(display_get_gui_width() / 2, 100, 100, 100, c_black, 35, 1, 20, _alpha)
-
-
-// Stamina
-var colorBar = make_color_rgb(74, 255, 61)
-
-if(obj_player.canDash){
-	colorBar = make_color_rgb(74, 255, 61)
-} else{
-	colorBar = make_color_rgb(20, 208, 255)
-}
-
-if(stamina <= maxStamina/3){
-	colorBar = make_color_rgb(255, 13, 122)
-}
-
-scrMagicBar(display_get_gui_width() / 2, 100, obj_player.stamina, obj_player.maxStamina, colorBar, 30, 1, 10, _alpha)
-
-draw_set_color(c_white) 
-
-// relog
-// Guardar el alineado actual
-var currentAlign = draw_get_halign();
-
-// Establecer el alineado horizontal al centro
-draw_set_halign(fa_center);
-
-// Dibujar el texto centrado horizontalmente y alineado al centro
-//draw_text(100, 100, string(obj_player.int_vx))
-
-draw_text(display_get_gui_width() / 2, 20 , string(obj_player.timeElapsed))
-
-// Restaurar el alineado por defecto
-draw_set_halign(currentAlign);
-
-//draw_text(100,100, "LOSE: " + string(obj_player.int_vy))
 
 
 

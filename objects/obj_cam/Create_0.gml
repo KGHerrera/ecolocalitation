@@ -10,6 +10,8 @@ layer_y3 = layer_get_y(bg_3)
 layer_y4 = layer_get_y(bg_4)
 layer_y5 = layer_get_y(bg_5)
 
+camera_set_view_pos(view_camera[0], 0, room_height)
+
 freeze = false;
 
 

@@ -19,7 +19,7 @@
   "height":64,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"0a23149c-4d14-4b1a-a364-7e75b8f6d78f","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"0a23149c-4d14-4b1a-a364-7e75b8f6d78f","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"0a23149c-4d14-4b1a-a364-7e75b8f6d78f","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"0a23149c-4d14-4b1a-a364-7e75b8f6d78f","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
     {"$GMImageLayer":"","%Name":"a8e25f8e-bd39-4bdd-89a2-f1564ca607fa","blendMode":0,"displayName":"default","isLocked":false,"name":"a8e25f8e-bd39-4bdd-89a2-f1564ca607fa","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_bote_inversa",

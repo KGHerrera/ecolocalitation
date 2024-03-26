@@ -483,7 +483,7 @@ if(!bolGround and keyA and !isDashing and stamina >= maxStamina/3 and !bol_surfa
 	isPlaning = true
 }
 
-if (isPlaning) {
+if (isPlaning and !die) {
 	
 	if(stamina > 0 ){
 		stamina--
@@ -553,7 +553,7 @@ if(die){
 	
 }
 
-if((place_meeting(x,y, obj_enemy) or y >= room_height + 150 ) and !die){ 
+if((place_meeting(x,y, obj_enemy) or (place_meeting(x,y, obj_rata)) or y >= room_height + 150 ) and !die){ 
 	sprite_index = sp_nothing
 	no_sprite = true
 	die = true
@@ -563,8 +563,8 @@ if((place_meeting(x,y, obj_enemy) or y >= room_height + 150 ) and !die){
 	audio_play_sound(snd_hit, 0, false)
 	
 	with(instance_create_depth(x, y - 10 ,0, obj_die_effect)) 	{
-		image_xscale = .75
-		image_yscale = .75
+		image_xscale = 1
+		image_yscale = 1
 	}
 	
 	puntaje -= 2800

@@ -18,3 +18,6 @@ if(timeNoCol == 0){
 	}
 }
 
+if(int_vx != 0){
+	int_vx = scrApproach(int_vx, 0, 0.075);
+}
